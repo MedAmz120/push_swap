@@ -6,13 +6,13 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 13:25:38 by moamzil           #+#    #+#             */
-/*   Updated: 2023/08/26 16:35:04 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/08/29 16:54:34 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# define CHUNK_SIZE 20
+# define CHUNK_SIZE 15
 # define CHUNK_TABS 5
 # define INT_MIN 2147483647
 
@@ -30,8 +30,9 @@ typedef struct push_swap
     int     acs; // ac variable acs = ac
     long    temp; // temp for atoi for int max value
     int     **chnk;
-    int     b_cnt; // stack b counter if stack b has been inisialized or dein it ++ or --
-    int     a_cnt; // same as b_cnt variable just is for sta
+    int     n_chnk; // chunks tables number divide up to 100 number to chunks 
+    int     b_cnt; // stack b counter if stack b has been inisialized or bein it ++ or --
+    int     a_cnt; // same as b_cnt variable just is for sta it count the number of element updated on moves
     int     s_num; // For storing the small number
 } t_swp;
 
@@ -44,7 +45,7 @@ long    push_swap_atoi(char *str); //for int max case returned by atoi
 int     check_sorted(t_swp *s); //check if the given numbers are sorted or not
 void    ft_push_swap(t_swp *s); // like oujada says it s mfezra bayna dyalach
 int     check_part_sorted(t_swp *s); /* we give it a part like the three last element and it check if they are sorted on not add it for the sorting 5 element*/
-void    ft_create_chunks(t_swp *s, size_t tab_size, int chunk_size); /* Create the double pointer that will hold me the values */
+void    ft_create_chunks(t_swp *s); /* Create the double pointer that will hold me the values */
 void    ft_duplicate_stack(int *src, int *dest, int size); // duplicate a stack
 void	quit_program(t_swp *s, int error_type); // clean F* program quiting
 
@@ -73,6 +74,6 @@ void    ft_small_out(t_swp *s); // take the small number out of the stack so cha
 long    ft_get_position(t_swp *s); // get the small number position
 int     ft_search_position(int *src, int t_find, int size); // look for number position on chunks
 void    ft_sort_chunks(t_swp *s, size_t tab_size, int chunk_size); // sort the chunks normal sort
-void    ft_push_chunks(t_swp *s); // push chunks after sorting;
+void    ft_push_chunks(t_swp *s, int s_chnk); // push chunks after sorting;
 
 #endif

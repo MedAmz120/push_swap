@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 12:25:29 by moamzil           #+#    #+#             */
-/*   Updated: 2023/08/26 17:27:23 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/08/29 16:33:30 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,22 @@ void    ft_duplicate_stack(int *src, int *dest, int size)
 	}
 }
 
-void    ft_create_chunks(t_swp *s, size_t tab_size, int chunk_size)
+void    ft_create_chunks(t_swp *s)
 {
-        s->chnk = (int **)malloc(sizeof(int *) * tab_size);
+		if (s->acs % 2 != 0)
+		{
+			if (s->acs > CHUNK_SIZE)
+				s->n_chnk = (s->acs / CHUNK_SIZE) + 1;
+		}
+		else
+			s->n_chnk = s->acs / CHUNK_SIZE;
+		if (s->acs <= 100)
+			s->n_chnk = 1;
+		if (s->acs % 2 == 0)
+        	s->chnk = (int **)malloc(sizeof(int *) * s->n_chnk);
+		if (s->acs % 2 != 0)
+			s->chnk = (int **)malloc(sizeof(int *) * s->n_chnk + 1);
         if (!s->chnk)
-                quit_program(s, 0);
+        	quit_program(s, 0);
         return ;
 }
