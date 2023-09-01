@@ -77,8 +77,6 @@ void    ft_create_chunks(t_swp *s)
 		}
 		else
 			s->n_chnk = s->acs / CHUNK_SIZE;
-		if (s->acs <= 100)
-			s->n_chnk = 1;
 		if (s->acs % 2 == 0)
         	s->chnk = (int **)malloc(sizeof(int *) * s->n_chnk);
 		if (s->acs % 2 != 0)
@@ -86,4 +84,17 @@ void    ft_create_chunks(t_swp *s)
         if (!s->chnk)
         	quit_program(s, 0);
         return ;
+}
+
+void	ft_chunking(t_swp *s)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < s->acs)
+	{
+		j = 0;
+		while ()
+	}
 }
