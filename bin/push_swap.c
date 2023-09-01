@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 13:20:08 by moamzil           #+#    #+#             */
-/*   Updated: 2023/08/29 16:34:41 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/01 10:28:52 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ void    ft_push_swap(t_swp *s)
         ft_sort_3(s);
     if (s->acs > 3 && s->acs <= 5)
         ft_sort_5(s);
-    if (s->acs > 5 && s->acs <= 123)
+    if (s->acs > 5 && s->acs <= 100)
         ft_sort_100(s);
 }

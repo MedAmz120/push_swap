@@ -6,11 +6,11 @@
 #    By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/09 12:48:53 by moamzil           #+#    #+#              #
-#    Updated: 2023/08/24 10:30:38 by moamzil          ###   ########.fr        #
+#    Updated: 2023/09/01 10:30:57 by moamzil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FLAGS	= -Wall -Wextra -Werror -fsanitize=address -g
+FLAGS	= -Wall -Wextra -Werror
 CC		= cc
 AR		= ar cr
 RM		= rm -rf

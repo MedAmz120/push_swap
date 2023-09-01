@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 10:29:18 by moamzil           #+#    #+#             */
-/*   Updated: 2023/08/29 16:55:41 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/01 10:54:26 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void    ft_push_chunks(t_swp *s, int s_chnk)
 
         i = 0;
         j = 0;
-        while (s->a_cnt >= 0)
+        /*while (s->a_cnt >= 0)
         {
                 while (j < s_chnk)
                 {
@@ -68,7 +68,7 @@ void    ft_push_chunks(t_swp *s, int s_chnk)
                                 
                         }
                 }
-        }
+        }*/
 }
 
 void    ft_sort_chunks(t_swp *s, size_t tab_size, int chunk_size)
@@ -102,15 +102,13 @@ void    ft_sort_chunks(t_swp *s, size_t tab_size, int chunk_size)
 void    ft_sort_100(t_swp *s)
 {
         ft_create_chunks(s);
-        s->chnk[0] = (int *)malloc(sizeof(int) * s->acs);
-        if (!s->chnk[0])
-                quit_program(s, 0);
-        ft_duplicate_stack(s->sta, s->chnk[0], s->acs);
-        ft_sort_chunks(s, 1, s->acs);
-        ft_push_chunks(s, s->acs);
-        int     i = 0;
+        ft_chunking(s);
+        //ft_duplicate_stack(s->sta, s->chnk[0], s->acs);
+        //ft_sort_chunks(s, 1, s->acs);
+        //ft_push_chunks(s, s->acs);
+        /*int     i = 0;
         while (i < s->acs)
         {printf("%d\n", s->chnk[0][i]);i++;}
-        printf("chunks number > %d\n", s->n_chnk);
+        printf("chunks number > %d\n", s->n_chnk);*/
         return ;
 }

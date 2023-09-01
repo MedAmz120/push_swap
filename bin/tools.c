@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 12:25:29 by moamzil           #+#    #+#             */
-/*   Updated: 2023/08/29 16:33:30 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/01 11:01:52 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,18 +83,26 @@ void    ft_create_chunks(t_swp *s)
 			s->chnk = (int **)malloc(sizeof(int *) * s->n_chnk + 1);
         if (!s->chnk)
         	quit_program(s, 0);
-        return ;
 }
-
+//-fsanitize=address -g
 void	ft_chunking(t_swp *s)
 {
 	int	i;
-	int	j;
+	int	x;
+	int	y;
 
 	i = 0;
+	x = 0;
 	while (i < s->acs)
 	{
-		j = 0;
-		while ()
+		y = 0;
+		printf("");
+		while (y < CHUNK_SIZE)
+		{
+			s->chnk[x][y] = s->sta[i];
+			y++;
+			i++;
+		}
+		x++;
 	}
 }

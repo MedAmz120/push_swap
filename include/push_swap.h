@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 13:25:38 by moamzil           #+#    #+#             */
-/*   Updated: 2023/08/29 16:54:34 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/01 10:27:14 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int     check_sorted(t_swp *s); //check if the given numbers are sorted or not
 void    ft_push_swap(t_swp *s); // like oujada says it s mfezra bayna dyalach
 int     check_part_sorted(t_swp *s); /* we give it a part like the three last element and it check if they are sorted on not add it for the sorting 5 element*/
 void    ft_create_chunks(t_swp *s); /* Create the double pointer that will hold me the values */
+void	ft_chunking(t_swp *s); /* push the elements from sta to the created chunks by ft_create_chunks */
 void    ft_duplicate_stack(int *src, int *dest, int size); // duplicate a stack
 void	quit_program(t_swp *s, int error_type); // clean F* program quiting
 
