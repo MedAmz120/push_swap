@@ -103,12 +103,19 @@ void    ft_sort_100(t_swp *s)
 {
         ft_create_chunks(s);
         ft_chunking(s);
-        //ft_duplicate_stack(s->sta, s->chnk[0], s->acs);
-        //ft_sort_chunks(s, 1, s->acs);
-        //ft_push_chunks(s, s->acs);
-        /*int     i = 0;
-        while (i < s->acs)
-        {printf("%d\n", s->chnk[0][i]);i++;}
-        printf("chunks number > %d\n", s->n_chnk);*/
+        ft_sort_chunks(s, 1, s->acs);
+	int i = 0;
+        int x;
+	while (i < s->n_chnk)
+	{
+		x = 0;
+		while (x < CHUNK_SIZE)
+		{
+			printf("%d ", s->chnk[i][x]);
+			x++;
+		}
+		printf("\n");
+		i++;
+	}
         return ;
 }

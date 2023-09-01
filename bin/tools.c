@@ -21,8 +21,10 @@ void	quit_program(t_swp *s, int error_type)
 	{
 		free(s->stb);
 		free(s->sta);
+		free(s->chnk);
 		s->sta = NULL;
 		s->stb = NULL;
+		s->chnk = NULL;
 	}
 	exit (1);
 }
@@ -70,21 +72,27 @@ void    ft_duplicate_stack(int *src, int *dest, int size)
 
 void    ft_create_chunks(t_swp *s)
 {
-		if (s->acs % 2 != 0)
-		{
-			if (s->acs > CHUNK_SIZE)
-				s->n_chnk = (s->acs / CHUNK_SIZE) + 1;
-		}
-		else
-			s->n_chnk = s->acs / CHUNK_SIZE;
-		if (s->acs % 2 == 0)
-        	s->chnk = (int **)malloc(sizeof(int *) * s->n_chnk);
-		if (s->acs % 2 != 0)
-			s->chnk = (int **)malloc(sizeof(int *) * s->n_chnk + 1);
-        if (!s->chnk)
-        	quit_program(s, 0);
+	int	i;
+
+	i = 0;
+	if (s->acs % CHUNK_SIZE != 0)
+		s->n_chnk = (s->acs / CHUNK_SIZE) + 1;
+	else if (s->acs <= CHUNK_SIZE)
+		s->n_chnk = 1;
+	else
+		s->n_chnk = s->acs / CHUNK_SIZE;
+    s->chnk = (int **)malloc(sizeof(int *) * s->n_chnk);
+    if (!s->chnk)
+    	quit_program(s, 0);
+	while (i < s->n_chnk)
+	{
+		s->chnk[i] = (int *)malloc(sizeof(int) * CHUNK_SIZE);
+		if (!s->chnk[i])
+			quit_program(s, 0);
+		i++;
+	}
 }
-//-fsanitize=address -g
+
 void	ft_chunking(t_swp *s)
 {
 	int	i;
@@ -96,7 +104,6 @@ void	ft_chunking(t_swp *s)
 	while (i < s->acs)
 	{
 		y = 0;
-		printf("");
 		while (y < CHUNK_SIZE)
 		{
 			s->chnk[x][y] = s->sta[i];
