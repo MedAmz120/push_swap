@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 10:29:18 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/02 11:19:05 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/02 13:53:57 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ int     ft_search_position(int *src, int t_find, int pos, int size)
 
         start = (pos / size) * size;
         stop = start + size - 1;
+        if (size % CHUNK_SIZE != 0)
+                stop = (start + size - 1) - 
+        printf("[%d - %d]\n", start, stop);
         while (start <= stop)
         {
                 if (src[start] == t_find)
@@ -32,19 +35,29 @@ void    ft_pushto_stb(t_swp *s)
 {
         int     i;
         int     pos;
+        int     pb = 0;
+        int     ra = 0;
 
         i = 0;
         pos = 0;
-        while (i < s->acs)
+        while (s->a_cnt >= 0)
         {
                 if (ft_search_position(s->chnk, s->sta[s->a_pos], pos, CHUNK_SIZE))
+                {
                         ft_pb(s);
+                        pb++;
+                }
                 else
+                {
                         ft_ra(s);
-                if (s->a_pos % CHUNK_SIZE == 0)
-                        pos += CHUNK_SIZE;
-                i++;
+                        ra++;
+                }
+                if (pos % CHUNK_SIZE == 0 && pos != 0)
+                        if (pos + CHUNK_SIZE < s->acs)
+                        {pos += CHUNK_SIZE;}
+                 i++;
         }
+        printf("Finale result \npb = %d\nra = %d\npos = %d\n", pb, ra, pos);
 }
 
 void    ft_sort_chunk(t_swp *s)
@@ -76,9 +89,9 @@ void    ft_sort_100(t_swp *s)
         ft_sort_chunk(s);
         ft_pushto_stb(s);
         int     i = 0;
-        while (i < s->acs)
+        /*while (i < s->acs)
         {
                 printf("%d, ", s->stb[i]);
                 i++;
-        }
+        }*/
 }

@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 19:29:07 by moamzil           #+#    #+#             */
-/*   Updated: 2023/08/25 14:11:35 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/02 12:41:10 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,5 @@ void	ft_pb(t_swp *s)
 	s->a_pos++;
 	s->a_cnt--;
 	s->b_cnt++;
-	ft_printf("pb\n");
+	//ft_printf("pb\n");
 }

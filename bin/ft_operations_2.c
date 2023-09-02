@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 19:38:43 by moamzil           #+#    #+#             */
-/*   Updated: 2023/08/25 20:02:52 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/02 13:32:45 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_ra(t_swp *s)
 		i++;
 	}
 	s->sta[s->acs - 1] = tmp;
-	ft_printf("ra\n");
+	//ft_printf("ra\n");
 }
 
 void	ft_rb(t_swp *s)
@@ -49,47 +49,6 @@ void	ft_rr(t_swp *s)
 	ft_ra(s);
 	ft_rb(s);
 }
-
-// void	ft_rra(t_swp *s)
-// {
-// 	int	i;
-// 	int	j;
-// 	int	tmp;
-
-// 	i = s->a_cnt - 1;
-// 	j = s->a_cnt - 2;
-// 	tmp = s->sta[s->acs - 1];
-// 	while (i > s->a_pos)
-// 	{
-// 		s->sta[i] = s->sta[j];
-// 		i--;
-// 		j--;
-// 	}
-// 	s->sta[s->a_pos] = tmp;
-// 	ft_printf("rra\n");
-// }
-
-// void	ft_rra(t_swp *s)
-// {
-// 	int	i;
-// 	int	j;
-// 	int c;
-// 	int	tmp;
-
-// 	c = 1;
-// 	i = s->acs - 3;
-// 	j = s->acs - 2;
-// 	tmp = s->sta[s->acs - 1];
-// 	while (c < s->a_cnt)
-// 	{
-// 		s->sta[i] = s->sta[j];
-// 		i--;
-// 		j--;
-// 		c++;
-// 	}
-// 	s->sta[s->a_pos] = tmp;
-// 	ft_printf("rra\n");
-// }
 
 void ft_rra(t_swp *s)
 {
