@@ -29,8 +29,7 @@ typedef struct push_swap
     int     b_pos;
     int     acs; // ac variable acs = ac
     long    temp; // temp for atoi for int max value
-    int     **chnk;
-    int     n_chnk; // chunks tables number divide up to 100 number to chunks 
+    int     *chnk;
     int     b_cnt; // stack b counter if stack b has been inisialized or bein it ++ or --
     int     a_cnt; // same as b_cnt variable just is for sta it count the number of element updated on moves
     int     s_num; // For storing the small number
@@ -45,7 +44,7 @@ long    push_swap_atoi(char *str); //for int max case returned by atoi
 int     check_sorted(t_swp *s); //check if the given numbers are sorted or not
 void    ft_push_swap(t_swp *s); // like oujada says it s mfezra bayna dyalach
 int     check_part_sorted(t_swp *s); /* we give it a part like the three last element and it check if they are sorted on not add it for the sorting 5 element*/
-void    ft_create_chunks(t_swp *s); /* Create the double pointer that will hold me the values */
+void    ft_create_chunk(t_swp *s); /* Create the double pointer that will hold me the values */
 void	ft_chunking(t_swp *s); /* push the elements from sta to the created chunks by ft_create_chunks */
 void    ft_duplicate_stack(int *src, int *dest, int size); // duplicate a stack
 void	quit_program(t_swp *s, int error_type); // clean F* program quiting
@@ -73,8 +72,8 @@ void    ft_sort_500(t_swp *s); // sort 100 numbers
 void    ft_small_number_pb(int  *tab, t_swp *s); // Function to get the smallest number on the stack
 void    ft_small_out(t_swp *s); // take the small number out of the stack so changing and pushing it with pb
 long    ft_get_position(t_swp *s); // get the small number position
-int     ft_search_position(int *src, int t_find, int size); // look for number position on chunks
-void    ft_sort_chunks(t_swp *s, size_t tab_size, int chunk_size); // sort the chunks normal sort
-void    ft_push_chunks(t_swp *s, int s_chnk); // push chunks after sorting;
+int     ft_search_position(int *src, int t_find, int pos, int size); // look for number position on chunk
+void    ft_sort_chunk(t_swp *s); // sort the chunks normal sort
+void    ft_pushto_stb(t_swp *s); // push chunk after sorting;
 
 #endif

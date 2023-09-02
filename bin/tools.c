@@ -70,46 +70,9 @@ void    ft_duplicate_stack(int *src, int *dest, int size)
 	}
 }
 
-void    ft_create_chunks(t_swp *s)
+void    ft_create_chunk(t_swp *s)
 {
-	int	i;
-
-	i = 0;
-	if (s->acs % CHUNK_SIZE != 0)
-		s->n_chnk = (s->acs / CHUNK_SIZE) + 1;
-	else if (s->acs <= CHUNK_SIZE)
-		s->n_chnk = 1;
-	else
-		s->n_chnk = s->acs / CHUNK_SIZE;
-    s->chnk = (int **)malloc(sizeof(int *) * s->n_chnk);
+    s->chnk = (int *)malloc(sizeof(int *) * s->acs);
     if (!s->chnk)
     	quit_program(s, 0);
-	while (i < s->n_chnk)
-	{
-		s->chnk[i] = (int *)malloc(sizeof(int) * CHUNK_SIZE);
-		if (!s->chnk[i])
-			quit_program(s, 0);
-		i++;
-	}
-}
-
-void	ft_chunking(t_swp *s)
-{
-	int	i;
-	int	x;
-	int	y;
-
-	i = 0;
-	x = 0;
-	while (i < s->acs)
-	{
-		y = 0;
-		while (y < CHUNK_SIZE)
-		{
-			s->chnk[x][y] = s->sta[i];
-			y++;
-			i++;
-		}
-		x++;
-	}
 }

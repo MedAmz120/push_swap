@@ -12,110 +12,66 @@
 
 #include "../include/push_swap.h"
 
-int     ft_search_position(int *src, int t_find, int size)
+int     ft_search_position(int *src, int t_find, int pos, int size)
 {
-        int     i;
+        int     start;
+        int     stop;
 
-        i = 0;
-        while (i < size)
+        start = (pos / size) * size;
+        stop = start + size - 1;
+        while (start <= stop)
         {
-                if (src[i] == t_find)
-                        return (i);
+                if (src[start] == t_find)
+                        return (1);
+                stop++;
         }
-        return (-1);
+        return (0);
 }
 
-
-/*void    ft_push_chunks(t_swp *s)
+void    ft_pushto_stb(t_swp *s)
 {
         int     i;
-        int     j;
-        int     sorted;
-
-        while (s->acs >= 0)
-	{
-		sorted = ft_search_position(s->chnk[i][j], s->sta[s->sta[0]], s->acs); // take the temp chaos, pos 0 stack a, counter size of stack a
-		if (sorted <= 10)
-			ft_pb(s);
-		else if (sorted < 0)
-		{
-			ft_pb(s);
-			ft_rb(s);
-		}
-		else if (sorted > 10)
-			ft_ra(s);
-	}
-	free(s->chnk);
-	ft_push_a(s);
-}*/
-
-void    ft_push_chunks(t_swp *s, int s_chnk)
-{
-        int     i;
-        int     j;
-        int     y;
-        int     position;
+        int     pos;
 
         i = 0;
-        j = 0;
-        /*while (s->a_cnt >= 0)
+        pos = 0;
+        while (i < s->acs)
         {
-                while (j < s_chnk)
-                {
-                        y = 0;
-                        while (y < s_chnk)
-                        {
-                                
-                        }
-                }
-        }*/
+                if (ft_search_position(s->chnk, s->sta[i], pos, CHUNK_SIZE))
+                        printf("I HAVE FOUND IT\n");
+                else
+                        printf("I HAVE NOT FOUND IT\n");
+                i++;
+                pos++;
+        }
 }
 
-void    ft_sort_chunks(t_swp *s, size_t tab_size, int chunk_size)
+void    ft_sort_chunk(t_swp *s)
 {
         int     i;
-        int     j;
         int     tmp;
 
         i = 0;
-        while (i < tab_size)
+        while (i < s->acs)
         {
-                j = 0;
-                while (j < chunk_size)
+                if (s->chnk[i] > s->chnk[i + 1])
                 {
-                        if (s->chnk[i][j] > s->chnk[i][j + 1])
-                        {
-                                tmp = s->chnk[i][j];
-                                s->chnk[i][j] = s->chnk[i][j + 1];
-                                s->chnk[i][j + 1] = tmp;
-                                j = 0;
-                        }
-                        else
-                                j++;
-                        if (j + 1 == chunk_size)
-                                break ;
+                        tmp = s->chnk[i];
+                        s->chnk[i] = s->chnk[i + 1];
+                        s->chnk[i + 1] = tmp;
+                        i = 0;
                 }
-                i++;
+                else
+                        i++;
+                if (i + 1 == s->acs)
+                        break ;
         }
 }
 
 void    ft_sort_100(t_swp *s)
 {
-        ft_create_chunks(s);
-        ft_chunking(s);
-        ft_sort_chunks(s, 1, s->acs);
-	int i = 0;
-        int x;
-	while (i < s->n_chnk)
-	{
-		x = 0;
-		while (x < CHUNK_SIZE)
-		{
-			printf("%d ", s->chnk[i][x]);
-			x++;
-		}
-		printf("\n");
-		i++;
-	}
-        return ;
+        ft_create_chunk(s);
+        ft_duplicate_stack(s->sta, s->chnk, s->acs);
+        ft_sort_chunk(s);
+        ft_pushto_stb(s);
 }
