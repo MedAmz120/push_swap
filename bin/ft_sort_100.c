@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 10:29:18 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/01 10:54:26 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/02 11:19:05 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int     ft_search_position(int *src, int t_find, int pos, int size)
         {
                 if (src[start] == t_find)
                         return (1);
-                stop++;
+                start++;
         }
         return (0);
 }
@@ -37,12 +37,13 @@ void    ft_pushto_stb(t_swp *s)
         pos = 0;
         while (i < s->acs)
         {
-                if (ft_search_position(s->chnk, s->sta[i], pos, CHUNK_SIZE))
-                        printf("I HAVE FOUND IT\n");
+                if (ft_search_position(s->chnk, s->sta[s->a_pos], pos, CHUNK_SIZE))
+                        ft_pb(s);
                 else
-                        printf("I HAVE NOT FOUND IT\n");
+                        ft_ra(s);
+                if (s->a_pos % CHUNK_SIZE == 0)
+                        pos += CHUNK_SIZE;
                 i++;
-                pos++;
         }
 }
 
@@ -74,4 +75,10 @@ void    ft_sort_100(t_swp *s)
         ft_duplicate_stack(s->sta, s->chnk, s->acs);
         ft_sort_chunk(s);
         ft_pushto_stb(s);
+        int     i = 0;
+        while (i < s->acs)
+        {
+                printf("%d, ", s->stb[i]);
+                i++;
+        }
 }
