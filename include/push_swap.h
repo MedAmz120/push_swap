@@ -13,7 +13,6 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # define CHUNK_SIZE 15
-# define CHUNK_TABS 5
 # define INT_MIN 2147483647
 
 # include <stdlib.h>
@@ -33,6 +32,8 @@ typedef struct push_swap
     int     b_cnt; // stack b counter if stack b has been inisialized or bein it ++ or --
     int     a_cnt; // same as b_cnt variable just is for sta it count the number of element updated on moves
     int     s_num; // For storing the small number
+    int     start;
+    int     stop;
 } t_swp;
 
 /* Program Function */
@@ -72,7 +73,7 @@ void    ft_sort_500(t_swp *s); // sort 100 numbers
 void    ft_small_number_pb(int  *tab, t_swp *s); // Function to get the smallest number on the stack
 void    ft_small_out(t_swp *s); // take the small number out of the stack so changing and pushing it with pb
 long    ft_get_position(t_swp *s); // get the small number position
-int     ft_search_position(int *src, int t_find, int pos, int size); // look for number position on chunk
+void     ft_range(t_swp *s);
 void    ft_sort_chunk(t_swp *s); // sort the chunks normal sort
 void    ft_pushto_stb(t_swp *s); // push chunk after sorting;
 

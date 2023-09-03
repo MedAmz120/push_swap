@@ -25,7 +25,7 @@ void	ft_ra(t_swp *s)
 		i++;
 	}
 	s->sta[s->acs - 1] = tmp;
-	//ft_printf("ra\n");
+	ft_printf("ra\n");
 }
 
 void	ft_rb(t_swp *s)
@@ -33,11 +33,11 @@ void	ft_rb(t_swp *s)
 	int	i;
 	int	tmp;
 
-	i = 1;
-	tmp = s->stb[0];
-	while (i < s->acs)
+	i = 0;
+	tmp = s->stb[s->b_pos];
+	while (i < s->b_cnt)
 	{
-		s->stb[i - 1] = s->stb[i];
+		s->stb[s->b_pos + i] = s->stb[s->b_pos + i + 1];
 		i++;
 	}
 	s->stb[s->acs - 1] = tmp;

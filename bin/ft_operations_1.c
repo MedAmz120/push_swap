@@ -69,5 +69,5 @@ void	ft_pb(t_swp *s)
 	s->a_pos++;
 	s->a_cnt--;
 	s->b_cnt++;
-	//ft_printf("pb\n");
+	ft_printf("pb\n");
 }

@@ -12,52 +12,44 @@
 
 #include "../include/push_swap.h"
 
-int     ft_search_position(int *src, int t_find, int pos, int size)
+void    ft_range(t_swp *s)
 {
-        int     start;
-        int     stop;
-
-        start = (pos / size) * size;
-        stop = start + size - 1;
-        if (size % CHUNK_SIZE != 0)
-                stop = (start + size - 1) - 
-        printf("[%d - %d]\n", start, stop);
-        while (start <= stop)
+        if (s->sta[s->a_pos] >= s->chnk[s->start]
+                && s->sta[s->a_pos] <= s->chnk[s->stop])
         {
-                if (src[start] == t_find)
-                        return (1);
-                start++;
+                ft_pb(s);
+                if (s->stop < s->acs - 1)
+                {
+                        s->start++;
+                        s->stop++;
+                }
         }
-        return (0);
+        else if (s->sta[s->a_pos] < s->chnk[s->start])
+        {
+                ft_pb(s);
+                ft_rb(s);
+                if (s->stop < s->acs - 1)
+                {
+                        s->start++;
+                        s->stop++;
+                }
+        }
+        else
+                ft_ra(s);
 }
 
 void    ft_pushto_stb(t_swp *s)
 {
-        int     i;
-        int     pos;
-        int     pb = 0;
-        int     ra = 0;
-
-        i = 0;
-        pos = 0;
+        s->start = 0;
+        s->stop = CHUNK_SIZE;
+        if (s->a_cnt < 15)
+                s->stop = 5;
         while (s->a_cnt >= 0)
         {
-                if (ft_search_position(s->chnk, s->sta[s->a_pos], pos, CHUNK_SIZE))
-                {
-                        ft_pb(s);
-                        pb++;
-                }
-                else
-                {
-                        ft_ra(s);
-                        ra++;
-                }
-                if (pos % CHUNK_SIZE == 0 && pos != 0)
-                        if (pos + CHUNK_SIZE < s->acs)
-                        {pos += CHUNK_SIZE;}
-                 i++;
+                if (s->a_cnt == 0)
+                        break ;
+                ft_range(s);
         }
-        printf("Finale result \npb = %d\nra = %d\npos = %d\n", pb, ra, pos);
 }
 
 void    ft_sort_chunk(t_swp *s)
@@ -88,10 +80,4 @@ void    ft_sort_100(t_swp *s)
         ft_duplicate_stack(s->sta, s->chnk, s->acs);
         ft_sort_chunk(s);
         ft_pushto_stb(s);
-        int     i = 0;
-        /*while (i < s->acs)
-        {
-                printf("%d, ", s->stb[i]);
-                i++;
-        }*/
 }
