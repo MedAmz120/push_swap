@@ -33,18 +33,3 @@ int main(int ac, char **av)
     }
     return (0);
 }
-
-
-
-/*
-        printf("---> A_POS IS = %d\n", s->a_pos);
-        printf("---> SMALL IS = %d\n", s->s_num);
-        printf("---> TEMPP IS = %ld\n", s->temp);
-        i = 0;
-        printf("-------------------------\nStack A | Stack B\n");
-        while (i < s->acs)
-        {
-            printf("   %d    |    %d    |\n", s->sta[i], s->stb[i]);
-            i++;
-        }
-*/
