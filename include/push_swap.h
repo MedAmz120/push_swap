@@ -46,8 +46,9 @@ int     check_sorted(t_swp *s); //check if the given numbers are sorted or not
 void    ft_push_swap(t_swp *s); // like oujada says it s mfezra bayna dyalach
 int     check_part_sorted(t_swp *s); /* we give it a part like the three last element and it check if they are sorted on not add it for the sorting 5 element*/
 void    ft_create_chunk(t_swp *s); /* Create the double pointer that will hold me the values */
-void	ft_chunking(t_swp *s); /* push the elements from sta to the created chunks by ft_create_chunks */
 void    ft_duplicate_stack(int *src, int *dest, int size); // duplicate a stack
+int     get_element_index(int *src, int t_find, int pos, t_swp *s); // for pushing back to stack a the elements from stack B it return the t_find position on stack B
+int     ft_big_number_stb(t_swp *s); // search for the biggest element on stack B for ft_pushto_sta function
 void	quit_program(t_swp *s, int error_type); // clean F* program quiting
 
 /* Operatios Functions */
@@ -73,8 +74,9 @@ void    ft_sort_500(t_swp *s); // sort 100 numbers
 void    ft_small_number_pb(int  *tab, t_swp *s); // Function to get the smallest number on the stack
 void    ft_small_out(t_swp *s); // take the small number out of the stack so changing and pushing it with pb
 long    ft_get_position(t_swp *s); // get the small number position
-void     ft_range(t_swp *s);
+void    ft_range(t_swp *s);
 void    ft_sort_chunk(t_swp *s); // sort the chunks normal sort
 void    ft_pushto_stb(t_swp *s); // push chunk after sorting;
+void    ft_pushto_sta(t_swp *s); // push back elements from stack B to stack A
 
 #endif
