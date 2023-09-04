@@ -14,5 +14,9 @@
 
 void    ft_sort_500(t_swp *s)
 {
-        return ;
+        ft_create_chunk(s);
+        ft_duplicate_stack(s->sta, s->chnk, s->acs);
+        ft_sort_chunk(s);
+        ft_pushto_stb(s);
+        ft_pushto_sta(s);
 }

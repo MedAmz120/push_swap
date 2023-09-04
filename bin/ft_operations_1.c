@@ -46,12 +46,11 @@ void	ft_ss(t_swp *s)
 
 void	ft_pa(t_swp *s)
 {
-	int			i;
-
-	i = s->acs - 1;
 	if (s->b_cnt < 1)
 		return ;
+	//printf("%d added to stack A\n", s->stb[s->b_pos]);
 	s->sta[s->a_pos - 1] = s->stb[s->b_pos];
+	s->stb[s->b_pos] = 9999;
 	s->b_pos++;
 	s->a_pos--;
 	s->a_cnt++;

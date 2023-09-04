@@ -27,4 +27,6 @@ void	ft_push_swap(t_swp *s)
 		ft_sort_5(s);
 	if (s->acs > 5 && s->acs <= 100)
 		ft_sort_100(s);
+	if (s->acs > 100 && s->acs <= 500)
+		ft_sort_500(s);
 }

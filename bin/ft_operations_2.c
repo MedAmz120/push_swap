@@ -71,7 +71,7 @@ void	ft_rra(t_swp *s)
 	ft_printf("rra\n");
 }
 
-void	ft_rrb(t_swp *s)
+/*void	ft_rrb(t_swp *s)
 {
 	int	i;
 	int	c;
@@ -89,5 +89,32 @@ void	ft_rrb(t_swp *s)
 		i--;
 	}
 	s->stb[s->b_pos] = tmp;
+	ft_printf("rrb\n");
+}*/
+
+void ft_rrb(t_swp *s)
+{
+	int	i;
+	int pos;
+	int hold;
+	int *temp;
+
+	i = 0;
+	hold = s->stb[s->acs - 1];
+	pos = s->b_pos;
+	temp = (int *)malloc(sizeof(int) * (s->b_cnt - 1));
+	while (i < s->b_cnt - 1)
+	{
+		temp[i++] = s->stb[pos++];
+	}
+	s->stb[s->b_pos] = hold;
+	i = 0;
+	pos = 1;
+	while (i < s->b_cnt - 1)
+	{
+		s->stb[s->b_pos + pos] = temp[i];
+		pos++;
+		i++; 
+	}
 	ft_printf("rrb\n");
 }

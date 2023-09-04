@@ -40,15 +40,25 @@ void    ft_range(t_swp *s)
 
 void    ft_pushto_stb(t_swp *s)
 {
+        int     i;
+
+        i = 0;
         s->start = 0;
         s->stop = CHUNK_SIZE;
         if (s->a_cnt < 15)
                 s->stop = 5;
+        if (s->acs > 100 && s->acs <= 500)
+                s->stop = 25;
         while (s->a_cnt >= 0)
         {
                 if (s->a_cnt == 0)
                         break ;
                 ft_range(s);
+        }
+        while (i < s->acs)
+        {
+                s->sta[i] = 9999;
+                i++;
         }
 }
 
@@ -82,12 +92,23 @@ void    ft_sort_100(t_swp *s)
         ft_pushto_stb(s);
         ft_pushto_sta(s); // now we get back the elements to stack A
         int i = 0;
-        printf("------------------\n");
-        while (i < s->acs)
-        {
-                printf("%d\n", s->sta[i]);
-                i++;
-        };
+        // printf("------------------\n");
+        // printf("---STACK B--------\n");
+        // while (i < s->acs)
+        // {
+        //         printf("[%d] -> %d\n", i, s->stb[i]);
+        //         i++;
+        // };        
+        // printf("------------------\n");
+        // printf("------------------\n");
+        // printf("------------------\n");
+        // printf("-------------------STACK A------------------\n");
+        // i = 0;
+        // while (i < s->acs)
+        // {
+        //         printf("[%d] -> %d\n", i, s->sta[i]);
+        //         i++;
+        // };
 }
 
 /*
