@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 10:29:18 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/02 13:53:57 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/04 14:07:17 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,53 @@ void    ft_sort_100(t_swp *s)
         ft_sort_chunk(s);
         ft_pushto_stb(s);
         ft_pushto_sta(s); // now we get back the elements to stack A
+        int i = 0;
+        printf("------------------\n");
+        while (i < s->acs)
+        {
+                printf("%d\n", s->sta[i]);
+                i++;
+        };
 }
+
+/*
+void	send_max(t_data *data)
+{
+	int	max_ndx;
+	int	half_ndx;
+	int	max_v;
+
+	while (data->b_cnt)
+	{
+		max_v = max_value(data);
+		max_ndx = max_index(data, max_v);
+		half_ndx = data->b_cnt / 2;
+		send_max_p2(data, &max_ndx, &half_ndx);
+	}
+}
+
+void	send_max_p2(t_data *data, int *max_ndx, int *half_ndx)
+{
+	int	size;
+
+	if ((*max_ndx) >= (*half_ndx))
+	{
+		size = data->b_cnt;
+		while (size > (*max_ndx))
+		{
+			rrb(data);
+			size--;
+		}
+	}
+	else if ((*max_ndx) < (*half_ndx))
+	{
+		size = 0;
+		while (size < (*max_ndx))
+		{
+			rb(data);
+			size++;
+		}
+	}
+	pa(data);
+}
+*/

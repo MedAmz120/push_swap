@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 13:25:38 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/01 10:27:14 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/04 12:40:24 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,5 @@ void    ft_range(t_swp *s);
 void    ft_sort_chunk(t_swp *s); // sort the chunks normal sort
 void    ft_pushto_stb(t_swp *s); // push chunk after sorting;
 void    ft_pushto_sta(t_swp *s); // push back elements from stack B to stack A
-
+void    ft_push_max(t_swp *s, int *pos, int *half); // rotate and push the max from stack B to stack A
 #endif

@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 19:38:43 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/02 13:32:45 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/04 11:45:57 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,40 +50,44 @@ void	ft_rr(t_swp *s)
 	ft_rb(s);
 }
 
-void ft_rra(t_swp *s)
+void	ft_rra(t_swp *s)
 {
-    int i = s->acs - 1;
-    int j = 0;
-    int c = 0;
-    int tmp = s->sta[i]; // Save the last element
+	int	i;
+	int	j;
+	int	c;
+	int	tmp;
 
-    while (c < s->a_cnt - 1)
-    {
-        s->sta[i] = s->sta[(i - 1 + s->acs) % s->acs]; // Move elements one position to the right
-        i = (i - 1 + s->acs) % s->acs;
-        c++;
-    }
-
-    s->sta[s->a_pos] = tmp; // Place the saved element in the correct position
-    ft_printf("rra\n");
+	j = 0;
+	c = 0;
+	i = s->acs - 1;
+	tmp = s->sta[i]; // Save the last element
+	while (c < s->a_cnt - 1)
+	{
+		s->sta[i] = s->sta[(i - 1 + s->acs) % s->acs]; // Move elements one position to the right
+		i = (i - 1 + s->acs) % s->acs;
+		c++;
+	}
+	s->sta[s->a_pos] = tmp; // Place the saved element in the correct position
+	ft_printf("rra\n");
 }
-
 
 void	ft_rrb(t_swp *s)
 {
 	int	i;
+	int	c;
 	int	j;
 	int	tmp;
 
-	i = s->acs - 1;
-	j = s->acs - 2;
+	j = 0;
+	c = 1;
+	i = s->acs - 2;
 	tmp = s->stb[s->acs - 1];
-	while (i >= 0)
+	while (c <= s->b_cnt)
 	{
-		s->stb[i] = s->stb[j];
+		s->stb[s->acs - c] = s->stb[i];
+		c++;
 		i--;
-		j--;
 	}
-	s->stb[0] = tmp;
+	s->stb[s->b_pos] = tmp;
 	ft_printf("rrb\n");
 }
