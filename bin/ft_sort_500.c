@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 10:29:25 by moamzil           #+#    #+#             */
-/*   Updated: 2023/08/24 10:56:50 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/05 16:01:51 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,4 @@ void    ft_sort_500(t_swp *s)
         ft_sort_chunk(s);
         ft_pushto_stb(s);
         ft_pushto_sta(s);
-        int i = 0;
-        printf("-------------------STACK A------------------\n");
-        i = 0;
-        while (i < s->acs)
-        {
-                printf("[%d] -> %d\n", i, s->sta[i]);
-                i++;
-        };
 }

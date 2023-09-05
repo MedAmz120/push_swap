@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 13:25:38 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/04 12:40:24 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/05 16:37:45 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void    ft_create_chunk(t_swp *s); /* Create the double pointer that will hold m
 void    ft_duplicate_stack(int *src, int *dest, int size); // duplicate a stack
 int     get_element_index(int *src, int t_find, int pos, t_swp *s); // for pushing back to stack a the elements from stack B it return the t_find position on stack B
 int     ft_big_number_stb(t_swp *s); // search for the biggest element on stack B for ft_pushto_sta function
-void	quit_program(t_swp *s, int error_type); // clean F* program quiting
+void	quit_program(t_swp *s, int pte); // clean F* program quiting
 
 /* Operations Functions */
 

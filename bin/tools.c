@@ -6,25 +6,30 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 12:25:29 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/01 11:01:52 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/05 16:47:49 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	quit_program(t_swp *s, int error_type)
+void	quit_program(t_swp *s, int pte)
 {
 	int	i;
 
-	if (error_type == 0)
-	{
+	s->stb = NULL;
+	if (s->stb == NULL)
 		free(s->stb);
+	if (s->sta != NULL)
 		free(s->sta);
+	if (s->chnk != NULL)
 		free(s->chnk);
-		s->sta = NULL;
-		s->stb = NULL;
-		s->chnk = NULL;
-	}
+	s->sta = NULL;
+	s->stb = NULL;
+	s->chnk = NULL;
+	if (pte == 404)
+		ft_printf("Error\n");
+	while (1)
+		printf("");
 	exit (1);
 }
 

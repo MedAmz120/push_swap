@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 10:28:57 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/04 12:18:57 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/05 16:34:19 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,5 @@ void	ft_sort_3(t_swp *s)
 	int	pos;
 
 	pos = s->a_pos;
-	if (check_part_sorted(s))
-		return ;
+	ft_sort_3_part2(s, pos);
 }

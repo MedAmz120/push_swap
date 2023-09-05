@@ -90,22 +90,6 @@ void    ft_pushto_sta(t_swp *s)
         half = s->b_cnt / 2;
         max = ft_big_number_stb(s);
         pos = get_element_index(s->stb, max, s->b_pos, s);
-        // printf("------> STACK B Before adding :\n");
-        // i = 0;
-        // while (i < s->acs)
-        // {
-        //     printf("[%d] -> %d\n", i, s->stb[i]);
-        //     i++;
-        // };
-        // printf("Max is \"%d\" in position [%d] and there is %d element left in stack B mean b->cnt is = %d\n", max, pos, s->b_cnt, s->b_cnt);
         ft_push_max(s, &pos, &half);
-        // printf("------> STACK B After adding :\n");
-        // i = 0;
-        // while (i < s->acs)
-        // {
-        //     printf("[%d] -> %d\n", i, s->stb[i]);
-        //     i++;
-        // };
-        // printf("\n\n\n\n\n");
     }
 }
