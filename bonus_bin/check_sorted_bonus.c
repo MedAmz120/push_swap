@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_sorted_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/10 11:20:09 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/05 18:55:21 by moamzil          ###   ########.fr       */
+/*   Created: 2023/08/17 10:11:50 by moamzil           #+#    #+#             */
+/*   Updated: 2023/09/05 17:12:50 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../include/push_swap_bonus.h"
 
-int	main(int ac, char **av)
+int	check_sorted_bns(t_bns *s)
 {
-	t_swp	swp;
+	int	i;
 
-	swp.acs = ac;
-	swp.sta = NULL;
-	swp.stb = NULL;
-	swp.chnk = NULL;
-	if (ac > 1)
+	i = 0;
+	while (i < s->arg_c - 1)
 	{
-		if (arg_check(av, ac, &swp))
-		{
-			swp.acs = swp.acs - 1;
-			if (check_sorted(&swp))
-				quit_program(&swp, 0);
-			else
-			{
-				ft_push_swap(&swp);
-				quit_program(&swp, 0);
-			}
-		}
+		if ((s->sta[i] < s->sta[i + 1]))
+			i++;
+		else
+			return (0);
 	}
-	return (0);
+	return (1);
 }

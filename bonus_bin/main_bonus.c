@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/10 11:20:09 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/05 18:55:21 by moamzil          ###   ########.fr       */
+/*   Created: 2023/09/05 17:12:33 by moamzil           #+#    #+#             */
+/*   Updated: 2023/09/05 21:14:13 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../include/push_swap_bonus.h"
 
 int	main(int ac, char **av)
 {
-	t_swp	swp;
+	t_bns	swp;
 
-	swp.acs = ac;
-	swp.sta = NULL;
-	swp.stb = NULL;
-	swp.chnk = NULL;
+	swp.arg_c = ac;
 	if (ac > 1)
 	{
-		if (arg_check(av, ac, &swp))
+		if (arg_check_bns(av, ac, &swp))
 		{
-			swp.acs = swp.acs - 1;
-			if (check_sorted(&swp))
-				quit_program(&swp, 0);
+			swp.arg_c = swp.arg_c - 1;
+			if (check_sorted_bns(&swp))
+				quit_program_bns (&swp, 0);
 			else
 			{
-				ft_push_swap(&swp);
-				quit_program(&swp, 0);
+				ft_apply_instructions(&swp);
+				if (check_sorted_bns(&swp))
+					ft_printf("OK\n");
+				else
+					ft_printf("KO\n");
+				quit_program_bns (&swp, 0);
 			}
+
 		}
 	}
 	return (0);

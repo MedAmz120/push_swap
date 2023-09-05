@@ -1,38 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_operations_3_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/10 11:20:09 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/05 18:55:21 by moamzil          ###   ########.fr       */
+/*   Created: 2023/08/18 20:20:12 by moamzil           #+#    #+#             */
+/*   Updated: 2023/09/05 20:11:32 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../include/push_swap_bonus.h"
 
-int	main(int ac, char **av)
+void	ft_rrr(t_bns *s)
 {
-	t_swp	swp;
-
-	swp.acs = ac;
-	swp.sta = NULL;
-	swp.stb = NULL;
-	swp.chnk = NULL;
-	if (ac > 1)
-	{
-		if (arg_check(av, ac, &swp))
-		{
-			swp.acs = swp.acs - 1;
-			if (check_sorted(&swp))
-				quit_program(&swp, 0);
-			else
-			{
-				ft_push_swap(&swp);
-				quit_program(&swp, 0);
-			}
-		}
-	}
-	return (0);
+	ft_rra(s);
+	ft_rrb(s);
 }

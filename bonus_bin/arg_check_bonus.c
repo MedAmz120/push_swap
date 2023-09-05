@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg_check.c                                        :+:      :+:    :+:   */
+/*   arg_check_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/10 11:25:41 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/05 19:23:08 by moamzil          ###   ########.fr       */
+/*   Created: 2023/09/05 17:12:45 by moamzil           #+#    #+#             */
+/*   Updated: 2023/09/05 19:28:15 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../include/push_swap_bonus.h"
 
-int	check_duplicate(t_swp *s)
+int	check_duplicate_bns(t_bns *s)
 {
 	int	i;
 	int	y;
 
 	i = 0;
-	while (i < s->acs - 1)
+	while (i < s->arg_c - 1)
 	{
 		y = i + 1;
 		if (s->sta[i] > 2147483647)
 			return (0);
-		while (y < s->acs - 1)
+		while (y < s->arg_c - 1)
 		{
 			if (s->sta[y] == s->sta[i])
 				return (0);
@@ -34,7 +34,7 @@ int	check_duplicate(t_swp *s)
 	return (1);
 }
 
-int	check_chars(char	*str)
+int	check_chars_bns(char *str)
 {
 	int	i;
 	int	error;
@@ -60,34 +60,34 @@ int	check_chars(char	*str)
 	return (1);
 }
 
-int	che_rg(char *str)
+int	che_rg_bns(char *str)
 {
 	return (!(ft_strlen(str) > 11));
 }
 
-int	arg_check(char **av, int ac, t_swp *s)
+int	arg_check_bns(char **av, int ac, t_bns *s)
 {
 	int	i;
 	int	y;
 
 	i = 1;
 	y = 0;
-	s->sta = (int *)malloc(sizeof(int) * ac - 1);
+	s->sta = (int *)malloc(sizeof(int) * ac);
 	if (!s->sta)
 		exit (1);
 	while (av[++y])
-		if (!(check_chars(av[y]) && che_rg(av[y])))
-				quit_program (s, 404);
+		if (!(check_chars_bns(av[y]) && che_rg_bns(av[y])))
+			quit_program_bns (s, 404);
 	y = -1;
 	while (i < ac)
 	{
-		s->temp = push_swap_atoi(av[i++]);
-		if (s->temp <= 2147483647 && s->temp > -2147483648)
+		s->temp = push_swap_atoi_bns(av[i++]);
+		if (s->temp <= 2147483647)
 			s->sta[++y] = s->temp;
 		else
-			quit_program (s, 404);
+			quit_program_bns (s, 404);
 	}
-	if (!(check_duplicate(s)))
-		quit_program (s, 404);
+	if (!(check_duplicate_bns(s)))
+		quit_program_bns (s, 404);
 	return (1);
 }

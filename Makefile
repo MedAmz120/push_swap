@@ -6,7 +6,7 @@
 #    By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/09 12:48:53 by moamzil           #+#    #+#              #
-#    Updated: 2023/09/01 10:30:57 by moamzil          ###   ########.fr        #
+#    Updated: 2023/09/05 20:34:08 by moamzil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,14 @@ ARC		= bin/p_s.a
 CLN		= make clean -C
 FLN		= make fclean -C
 
+HEADBONUS	= include/push_swap_bonus.h
+BINBONUS	= bonus_bin
+FILEBONUS	= $(addprefix $(BINBONUS)/, main_bonus checker_bonus arg_check_bonus check_sorted_bonus ft_operations_1_bonus ft_operations_2_bonus ft_operations_3_bonus tools_bonus)	
+OBJBONUS	= $(FILEBONUS:=.o)
+ARCBONUS	= bonus_bin/checker.a
+NAMEBONUS	= checker
+
+
 all: $(ARC) $(SRC)
 	@$(CC) $(FLAGS) $(SRC) $(ARC) -o $(NAME)
 
@@ -36,17 +44,26 @@ $(SRC):
 	@make -C $(LIBFT)
 	@make -C $(PRINTF)
 
-%.o: %.c $(HEAD)
+%.o: %.c $(HEAD) $(HEADBONUS)
 	@$(CC) $(FLAFGS) -c $< -o $@
+
+bonus: $(ARCBONUS) $(SRC)
+	@$(CC) $(FLAGS) $(SRC) $(ARCBONUS) -o $(NAMEBONUS)
+$(ARCBONUS): $(OBJBONUS) $(SRC)
+	@$(AR) $(ARCBONUS) $(OBJBONUS)
+
 
 clean:
 	@$(RM) $(ARC)
 	@$(RM) $(OBJ)
+	@$(RM) $(ARCBONUS)
+	@$(RM) $(OBJBONUS)
 	@$(CLN) $(LIBFT)
 	@$(CLN) $(PRINTF)
 
 fclean: clean
 	@$(RM) $(NAME)
+	@$(RM) $(NAMEBONUS)
 	@$(FLN) $(LIBFT)
 	@$(FLN) $(PRINTF)
 

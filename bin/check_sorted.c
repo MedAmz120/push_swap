@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 10:11:50 by moamzil           #+#    #+#             */
-/*   Updated: 2023/08/25 20:17:54 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/05 19:04:49 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	check_sorted(t_swp *s)
 	int	i;
 
 	i = 0;
-	while (i < s->acs - 1)
+	while (i < s->acs)
 	{
-		if ((s->sta[i] < s->sta[i + 1]))
+		if ((s->sta[i - 1] < s->sta[i]))
 			i++;
 		else
 			return (0);
