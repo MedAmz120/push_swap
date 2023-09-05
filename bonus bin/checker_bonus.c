@@ -2,6 +2,22 @@
 
 #include "../include/push_swap_bonus.h"
 
+int     ft_apply_2(char *str, t_bns *s)
+{
+    if (str[0] == 'r' && str[1] == 'b')
+        ft_rb(s);
+    else if (str[0] == 'r' && str[1] == 'r')
+        ft_rr(s);
+    else if (str[0] == 'r' && str[1] == 'r' && str[2] == 'a')
+        ft_rra(s);
+    else if (str[0] == 'r' && str[1] == 'r' && str[2] == 'b')
+        ft_rrb(s);
+    else if (str[0] == 'r' && str[1] == 'r' && str[2] == 'r')
+        ft_rrr(s);
+    else
+        return (0);
+}
+
 int    ft_apply(char *str, t_bns *s)
 {
     if (str[0] == 's' && str[1] == 'a')
@@ -16,18 +32,9 @@ int    ft_apply(char *str, t_bns *s)
         ft_pb(s);
     else if (str[0] == 'r' && str[1] == 'a')
         ft_ra(s);
-    else if (str[0] == 'r' && str[1] == 'b')
-        ft_rb(s);
-    else if (str[0] == 'r' && str[1] == 'r')
-        ft_rr(s);
-    else if (str[0] == 'r' && str[1] == 'r' && str[2] == 'a')
-        ft_rra(s);
-    else if (str[0] == 'r' && str[1] == 'r' && str[2] == 'b')
-        ft_rrb(s);
-    else if (str[0] == 'r' && str[1] == 'r' && str[2] == 'r')
-        ft_rrr(s);
     else
-        return (0);
+        if (!ft_apply_2(str, s))
+            return (0);
     return (1);
 }
 

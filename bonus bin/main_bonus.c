@@ -10,11 +10,15 @@ int	main(int ac, char **av)
 		if (arg_check_bns(av, ac, &swp))
 		{
 			swp.arg_c = swp.arg_c - 1;
-			if (check_sorted(&swp))
+			if (check_sorted_bns(&swp))
 				quit_program_bns (&swp, 0);
 			else
 			{
 				ft_apply_instructions(&swp);
+				if (check_sorted_bns(s))
+					ft_printf("OK\n");
+				else
+					ft_printf("KO\n");
 				quit_program_bns (&swp, 0);
 			}
 		}
