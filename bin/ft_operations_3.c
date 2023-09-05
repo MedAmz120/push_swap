@@ -14,6 +14,7 @@
 
 void	ft_rrr(t_swp *s)
 {
-	ft_rra(s);
-	ft_rrb(s);
+	ft_rra(s, 0);
+	ft_rrb(s, 0);
+	ft_printf("rrr\n");
 }

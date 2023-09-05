@@ -17,26 +17,26 @@ void	ft_sort_3_part2(t_swp *s, int pos)
 	if (s->sta[pos + 2] > s->sta[pos]
 		&& s->sta[pos + 2] > s->sta[pos + 1]
 		&& s->sta[pos] > s->sta[pos + 1])
-		ft_sa(s);
+		ft_sa(s, 1);
 	else if (s->sta[pos] > s->sta[pos + 1]
 		&& s->sta[pos + 1] < s->sta[pos + 2]
 		&& s->sta[pos] > s->sta[pos + 2])
-		ft_ra(s);
+		ft_ra(s, 1);
 	else if (s->sta[pos] > s->sta[pos + 1]
 		&& s->sta[pos] > s->sta[pos + 2])
 	{
-		ft_sa(s);
-		ft_rra(s);
+		ft_sa(s, 1);
+		ft_rra(s, 1);
 	}
 	else if (s->sta[pos] < s->sta[pos + 1]
 		&& s->sta[pos + 1] > s->sta[pos + 2]
 		&& s->sta[pos] < s->sta[pos + 2])
 	{
-		ft_sa(s);
-		ft_ra(s);
+		ft_sa(s, 1);
+		ft_ra(s, 1);
 	}
 	else
-		ft_rra(s);
+		ft_rra(s, 1);
 }
 
 void	ft_sort_3(t_swp *s)

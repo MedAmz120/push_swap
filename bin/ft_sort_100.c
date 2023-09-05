@@ -27,7 +27,7 @@ void    ft_range(t_swp *s)
         else if (s->sta[s->a_pos] < s->chnk[s->start])
         {
                 ft_pb(s);
-                ft_rb(s);
+                ft_rb(s, 1);
                 if (s->stop < s->acs - 1)
                 {
                         s->start++;
@@ -35,7 +35,7 @@ void    ft_range(t_swp *s)
                 }
         }
         else
-                ft_ra(s);
+                ft_ra(s, 1);
 }
 
 void    ft_pushto_stb(t_swp *s)

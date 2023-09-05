@@ -53,7 +53,7 @@ void	ft_small_out(t_swp *s)
 	s->temp = ft_get_position(s);
 	if (s->temp == s->a_pos + 1)
 	{
-		ft_sa(s);
+		ft_sa(s, 1);
 		s->temp = ft_get_position(s);
 	}
 	if (s->temp == s->a_pos)
@@ -63,7 +63,7 @@ void	ft_small_out(t_swp *s)
 	}
 	if (s->temp != s->a_pos && s->temp != s->a_pos + 1)
 	{
-		ft_rra(s);
+		ft_rra(s, 1);
 		ft_small_out(s);
 	}
 }
@@ -80,7 +80,7 @@ void	ft_sort_5(t_swp *s)
 	if (!check_part_sorted(s))
 		ft_sort_3(s);
 	if (s->stb[s->b_pos] < s->stb[s->b_pos + 1])
-		ft_sb(s);
+		ft_sb(s, 1);
 	ft_pa(s);
 	ft_pa(s);
 }

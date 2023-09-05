@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-void	ft_sa(t_swp *s)
+void	ft_sa(t_swp *s, int msg)
 {
 	int	tmp;
 
@@ -22,10 +22,11 @@ void	ft_sa(t_swp *s)
 		s->sta[s->a_pos] = s->sta[s->a_pos + 1];
 		s->sta[s->a_pos + 1] = tmp;
 	}
-	ft_printf("sa\n");
+	if (msg == 1)
+		ft_printf("sa\n");
 }
 
-void	ft_sb(t_swp *s)
+void	ft_sb(t_swp *s, int msg)
 {
 	int	tmp;
 
@@ -35,13 +36,15 @@ void	ft_sb(t_swp *s)
 		s->stb[s->b_pos] = s->stb[s->b_pos + 1];
 		s->stb[s->b_pos + 1] = tmp;
 	}
-	ft_printf("sb\n");
+	if (msg == 1)
+		ft_printf("sb\n");
 }
 
 void	ft_ss(t_swp *s)
 {
-	ft_sa(s);
-	ft_sb(s);
+	ft_sa(s, 0);
+	ft_sb(s, 0);
+	ft_printf("ss\n");
 }
 
 void	ft_pa(t_swp *s)

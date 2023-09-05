@@ -61,7 +61,7 @@ void    ft_push_max(t_swp *s, int *pos, int *half)
         size = s->b_cnt - temp + s->b_pos;
         while (i < size)
         {
-            ft_rrb(s);
+            ft_rrb(s, 1);
             i++;
         }
     }
@@ -70,7 +70,7 @@ void    ft_push_max(t_swp *s, int *pos, int *half)
         size = (*pos) - s->b_pos;
         while (size > 0)
         {
-            ft_rb(s);
+            ft_rb(s, 1);
             size--;
         }
     }

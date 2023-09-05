@@ -54,16 +54,16 @@ void	quit_program(t_swp *s, int pte); // clean F* program quiting
 
 /* Operations Functions */
 
-void    ft_sa(t_swp *s); /* Swap the 2 first elements at sta */
-void    ft_sb(t_swp *s); /* Swap the 2 first elements at stb */
+void    ft_sa(t_swp *s, int msg); /* Swap the 2 first elements at sta */
+void    ft_sb(t_swp *s, int msg); /* Swap the 2 first elements at stb */
 void    ft_ss(t_swp *s); /* sa and sb at the same time */
 void    ft_pa(t_swp *s); /* take the first element at the top of b and put it at the top of a */
 void    ft_pb(t_swp *s); /* Take the first element at the top of a and put it at the top of b */
-void    ft_ra(t_swp *s); /* The first element becomes the last one. */
-void	ft_rb(t_swp *s); /* Shift up all elements of stack b by 1. The first element becomes the last one */
+void    ft_ra(t_swp *s, int msg); /* The first element becomes the last one. */
+void	ft_rb(t_swp *s, int msg); /* Shift up all elements of stack b by 1. The first element becomes the last one */
 void    ft_rr(t_swp *s); /* ra and rb same time */
-void    ft_rra(t_swp *s); /* Shift down all elements of stack a by 1.The last element becomes the first one */
-void    ft_rrb(t_swp *s); /* Shift down all elements of stack b by 1.The last element becomes the first one */
+void    ft_rra(t_swp *s, int msg); /* Shift down all elements of stack a by 1.The last element becomes the first one */
+void    ft_rrb(t_swp *s, int msg); /* Shift down all elements of stack b by 1.The last element becomes the first one */
 void    ft_rrr(t_swp *s); /* rra and rrb at the same time. */
 
 /* Sorting Functions */

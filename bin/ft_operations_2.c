@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-void	ft_ra(t_swp *s)
+void	ft_ra(t_swp *s, int msg)
 {
 	int	i;
 	int	tmp;
@@ -25,10 +25,11 @@ void	ft_ra(t_swp *s)
 		i++;
 	}
 	s->sta[s->acs - 1] = tmp;
-	ft_printf("ra\n");
+	if (msg == 1)
+		ft_printf("ra\n");
 }
 
-void	ft_rb(t_swp *s)
+void	ft_rb(t_swp *s, int msg)
 {
 	int	i;
 	int	tmp;
@@ -41,16 +42,18 @@ void	ft_rb(t_swp *s)
 		i++;
 	}
 	s->stb[s->acs - 1] = tmp;
-	ft_printf("rb\n");
+	if (msg == 1)
+		ft_printf("rb\n");
 }
 
 void	ft_rr(t_swp *s)
 {
-	ft_ra(s);
-	ft_rb(s);
+	ft_ra(s, 0);
+	ft_rb(s, 0);
+	ft_printf("rr\n");
 }
 
-void	ft_rra(t_swp *s)
+void	ft_rra(t_swp *s, int msg)
 {
 	int	i;
 	int	j;
@@ -68,10 +71,11 @@ void	ft_rra(t_swp *s)
 		c++;
 	}
 	s->sta[s->a_pos] = tmp; // Place the saved element in the correct position
-	ft_printf("rra\n");
+	if (msg == 1)
+		ft_printf("rra\n");
 }
 
-void ft_rrb(t_swp *s)
+void ft_rrb(t_swp *s, int msg)
 {
 	int	i;
 	int pos;
@@ -95,5 +99,6 @@ void ft_rrb(t_swp *s)
 		pos++;
 		i++; 
 	}
-	ft_printf("rrb\n");
+	if (msg == 1)
+		ft_printf("rrb\n");
 }
