@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.c                                            :+:      :+:    :+:   */
+/*   tools_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 12:25:29 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/01 11:01:52 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/05 17:13:28 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap_bonus.h"
 
-void	quit_program_bns(t_bns *s, int error_type)
+void	quit_program_bns(t_bns *s, int pte)
 {
 	int	i;
 
-	if (error_type == 0)
-	{
-		if (s->stb)
-			free(s->stb);
-		if (s->sta)
-			free(s->sta);
-		if (s->chnk)
-			free(s->chnk);
-		s->sta = NULL;
-		s->stb = NULL;
-		s->chnk = NULL;
-	}
+	s->stb = NULL;
+	if (s->stb == NULL)
+		free(s->stb);
+	if (s->sta != NULL)
+		free(s->sta);
+	s->sta = NULL;
+	s->stb = NULL;
+	if (pte == 404)
+		ft_printf("Error\n");
 	exit (1);
 }
 
