@@ -12,7 +12,7 @@
 
 #include "../include/push_swap_bonus.h"
 
-int	check_duplicate(t_bns *s)
+int	check_duplicate_bns(t_bns *s)
 {
 	int	i;
 	int	y;
@@ -34,7 +34,7 @@ int	check_duplicate(t_bns *s)
 	return (1);
 }
 
-int	check_chars(char	*str)
+int	check_chars_bns(char *str)
 {
 	int	i;
 	int	error;
@@ -63,7 +63,7 @@ int	check_chars(char	*str)
 	return (1);
 }
 
-int	arg_check(char **av, int ac, t_bns *s)
+int	arg_check_bns(char **av, int ac, t_bns *s)
 {
 	int	i;
 	int	y;
@@ -74,18 +74,18 @@ int	arg_check(char **av, int ac, t_bns *s)
 	if (!s->sta)
 		exit (1);
 	while (av[++y])
-		if (!(check_chars(av[y])))
-			quit_program (s, 0);
+		if (!(check_chars_bns(av[y])))
+			quit_program_bns (s, 0);
 	y = -1;
 	while (i < ac)
 	{
-		s->temp = push_swap_atoi(av[i++]);
+		s->temp = push_swap_atoi_bns(av[i++]);
 		if (s->temp <= 2147483647)
 			s->sta[++y] = s->temp;
 		else
-			quit_program (s, 0);
+			quit_program_bns (s, 0);
 	}
-	if (!(check_duplicate(s)))
-		quit_program (s, 0);
+	if (!(check_duplicate_bns(s)))
+		quit_program_bns (s, 0);
 	return (1);
 }

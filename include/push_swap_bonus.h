@@ -1,5 +1,6 @@
 
-
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 # define INT_MIN 2147483647
 
 # include <stdlib.h>
@@ -21,12 +22,27 @@ typedef struct push_bonus
 
 /* Program Function */
 
-int     arg_check(char **av, int ac, t_bns *s);
-int     check_chars(char *str);
-int     check_duplicate(t_bns *s);
-long    push_swap_atoi(char *str);
-int     check_sorted(t_bns *s);
+int     arg_check_bns(char **av, int ac, t_bns *s);
+int     check_chars_bns(char *str);
+int     check_duplicate_bns(t_bns *s);
+long    push_swap_atoi_bns(char *str);
+int     check_sorted_bns(t_bns *s);
 void    ft_apply_instructions(t_bns *s);
-void	quit_program(t_bns *s, int error_type);
+int     ft_apply(char *str, t_bns *s);
+void	quit_program_bns(t_bns *s, int error_type);
 
 /* Operations Functions */
+
+void    ft_sa(t_swp *s); /* Swap the 2 first elements at sta */
+void    ft_sb(t_swp *s); /* Swap the 2 first elements at stb */
+void    ft_ss(t_swp *s); /* sa and sb at the same time */
+void    ft_pa(t_swp *s); /* take the first element at the top of b and put it at the top of a */
+void    ft_pb(t_swp *s); /* Take the first element at the top of a and put it at the top of b */
+void    ft_ra(t_swp *s); /* The first element becomes the last one. */
+void	ft_rb(t_swp *s); /* Shift up all elements of stack b by 1. The first element becomes the last one */
+void    ft_rr(t_swp *s); /* ra and rb same time */
+void    ft_rra(t_swp *s); /* Shift down all elements of stack a by 1.The last element becomes the first one */
+void    ft_rrb(t_swp *s); /* Shift down all elements of stack b by 1.The last element becomes the first one */
+void    ft_rrr(t_swp *s); /* rra and rrb at the same time. */
+
+#endif

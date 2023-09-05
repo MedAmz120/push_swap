@@ -61,7 +61,7 @@ void    ft_pa(t_swp *s); /* take the first element at the top of b and put it at
 void    ft_pb(t_swp *s); /* Take the first element at the top of a and put it at the top of b */
 void    ft_ra(t_swp *s); /* The first element becomes the last one. */
 void	ft_rb(t_swp *s); /* Shift up all elements of stack b by 1. The first element becomes the last one */
-void    ft_rb(t_swp *s); /* ra and rb same time */
+void    ft_rr(t_swp *s); /* ra and rb same time */
 void    ft_rra(t_swp *s); /* Shift down all elements of stack a by 1.The last element becomes the first one */
 void    ft_rrb(t_swp *s); /* Shift down all elements of stack b by 1.The last element becomes the first one */
 void    ft_rrr(t_swp *s); /* rra and rrb at the same time. */

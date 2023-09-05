@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../include/push_swap_bonus.h"
 
-void	ft_ra(t_swp *s)
+void	ft_ra(t_bns *s)
 {
 	int	i;
 	int	tmp;
@@ -28,7 +28,7 @@ void	ft_ra(t_swp *s)
 	ft_printf("ra\n");
 }
 
-void	ft_rb(t_swp *s)
+void	ft_rb(t_bns *s)
 {
 	int	i;
 	int	tmp;
@@ -44,13 +44,13 @@ void	ft_rb(t_swp *s)
 	ft_printf("rb\n");
 }
 
-void	ft_rr(t_swp *s)
+void	ft_rr(t_bns *s)
 {
 	ft_ra(s);
 	ft_rb(s);
 }
 
-void	ft_rra(t_swp *s)
+void	ft_rra(t_bns *s)
 {
 	int	i;
 	int	j;
@@ -71,7 +71,7 @@ void	ft_rra(t_swp *s)
 	ft_printf("rra\n");
 }
 
-void ft_rrb(t_swp *s)
+void ft_rrb(t_bns *s)
 {
 	int	i;
 	int pos;
@@ -95,5 +95,6 @@ void ft_rrb(t_swp *s)
 		pos++;
 		i++; 
 	}
+	free(temp);
 	ft_printf("rrb\n");
 }

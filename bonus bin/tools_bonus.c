@@ -12,16 +12,33 @@
 
 #include "../include/push_swap_bonus.h"
 
-void	quit_program(t_bns *s, int error_type)
+void	quit_program_bns(t_bns *s, int error_type)
 {
 	int	i;
 
-	i = 0;
 	if (error_type == 0)
 	{
-		free(s->stb);
-		free(s->sta);
-		free(s->chnk);
+		if (s->stb)
+		{
+			i = 0;
+			while (i > s->acs + 1)
+				free(s->stb[i++]);
+			free(s->stb);
+		}
+		if (s->sta)
+		{
+			i = 0;
+			while (i < s->acs + 1)
+				free(s->sta[i++]);
+			free(s->sta);
+		}
+		if (s->chnk)
+		{
+			i = 0;
+			while (i < s->acs + 1)
+				free(s->chnk[i++]);
+			free(s->chnk);
+		}
 		s->sta = NULL;
 		s->stb = NULL;
 		s->chnk = NULL;
@@ -29,7 +46,7 @@ void	quit_program(t_bns *s, int error_type)
 	exit (1);
 }
 
-long	push_swap_atoi(char *str)
+long	push_swap_atoi_bns(char *str)
 {
 	long	neg;
 	long	nbr;
@@ -56,16 +73,4 @@ long	push_swap_atoi(char *str)
 	if (nbr * neg > INT_MIN)
 		return (2147483648);
 	return (nbr * neg);
-}
-
-void    ft_duplicate_stack(int *src, int *dest, int size)
-{
-	int	i;
-
-	i = 0;
-	while (i < size)
-	{
-		dest[i] = src[i];
-		i++;
-	}
 }

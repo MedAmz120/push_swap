@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_sorted.c                                     :+:      :+:    :+:   */
+/*   ft_operations_3.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/17 10:11:50 by moamzil           #+#    #+#             */
-/*   Updated: 2023/08/25 20:17:54 by moamzil          ###   ########.fr       */
+/*   Created: 2023/08/18 20:20:12 by moamzil           #+#    #+#             */
+/*   Updated: 2023/08/19 19:40:34 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap_bonus.h"
 
-int	check_sorted_bns(t_bns *s)
+void	ft_rrr(t_bns *s)
 {
-	int	i;
-
-	i = 0;
-	while (i < s->arg_c - 1)
-	{
-		if ((s->sta[i] < s->sta[i + 1]))
-			i++;
-		else
-			return (0);
-	}
-	return (1);
+	ft_rra(s);
+	ft_rrb(s);
 }

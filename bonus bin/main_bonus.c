@@ -7,15 +7,15 @@ int	main(int ac, char **av)
 	swp.arg_c = ac;
 	if (ac > 1)
 	{
-		if (arg_check(av, ac, &swp))
+		if (arg_check_bns(av, ac, &swp))
 		{
 			swp.arg_c = swp.arg_c - 1;
 			if (check_sorted(&swp))
-				quit_program(&swp, 0);
+				quit_program_bns (&swp, 0);
 			else
 			{
 				ft_apply_instructions(&swp);
-				quit_program(&swp, 0);
+				quit_program_bns (&swp, 0);
 			}
 		}
 	}
