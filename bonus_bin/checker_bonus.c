@@ -6,71 +6,56 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:12:56 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/05 21:13:55 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/05 22:56:01 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap_bonus.h"
 
-int     ft_apply_2(char *str, t_bns *s)
+int    ft_apply(char *str, t_bns *s)
 {
-    if (str[0] == 'r' && str[1] == 'b')
+    if (strcmp(str, "sa\n"))
+        ft_sa(s);
+    else if (strcmp(str, "sb\n"))
+        ft_sb(s);
+    else if (strcmp(str, "ss\n"))
+        ft_ss(s);
+    else if (strcmp(str, "ra\n"))
+        ft_ra(s);
+    else if (strcmp(str, "rb\n"))
         ft_rb(s);
-    else if (str[0] == 'r' && str[1] == 'r')
+    else if (strcmp(str, "rr\n"))
         ft_rr(s);
-    else if (str[0] == 'r' && str[1] == 'r' && str[2] == 'a')
+    else if (strcmp(str, "rra\n"))
         ft_rra(s);
-    else if (str[0] == 'r' && str[1] == 'r' && str[2] == 'b')
+    else if (strcmp(str, "rrb\n"))
         ft_rrb(s);
-    else if (str[0] == 'r' && str[1] == 'r' && str[2] == 'r')
+    else if (strcmp(str, "rrr\n"))
         ft_rrr(s);
     else
         return (0);
     return (1);
 }
 
-int    ft_apply(char *str, t_bns *s)
-{
-    if (str[0] == 's' && str[1] == 'a')
-        ft_sa(s);
-    else if (str[0] == 's' && str[1] == 'b')
-        ft_sb(s);
-    else if (str[0] == 's' && str[1] == 's')
-        ft_ss(s);
-    else if (str[0] == 'p' && str[1] == 'a')
-        ft_pa(s);    
-    else if (str[0] == 'p' && str[1] == 'b')
-        ft_pb(s);
-    else if (str[0] == 'r' && str[1] == 'a')
-        ft_ra(s);
-    else
-        if (!ft_apply_2(str, s))
-            return (0);
-    return (1);
-}
-
 void    ft_apply_instructions(t_bns *s)
 {
-    char    *buff;
+    char    *line;
     size_t  bytes;
 
     s->stb = (int *)malloc(sizeof(int) * s->arg_c);
 	if (!s->stb)
 		quit_program_bns (s, 0);
-    buff = ft_calloc(sizeof(char), 5);
-    if (!buff)
-        quit_program_bns(s, 0);
     while (1)
     {
-        bytes = read(0, buff, 5);
-        if (bytes == 0)
+        line = get_next_line(0);
+        if (!line)
             break ;
-        if (!ft_apply(buff, s))
+        if (!ft_apply(line, s))
         {
-            ft_printf("Error\n");
+            free(line);
+            ft_putstr_fd("Error\n", 2);
             quit_program_bns (s, 0);
         }
+        free(line);
     }
-    free(buff);
-    quit_program_bns (s, 0);
 }

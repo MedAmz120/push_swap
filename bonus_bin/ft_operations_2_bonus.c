@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 20:10:42 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/05 20:11:14 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/05 22:54:09 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	ft_ra(t_bns *s)
 		i++;
 	}
 	s->sta[s->arg_c - 1] = tmp;
-	ft_printf("ra\n");
 }
 
 void	ft_rb(t_bns *s)
@@ -41,7 +40,6 @@ void	ft_rb(t_bns *s)
 		i++;
 	}
 	s->stb[s->arg_c - 1] = tmp;
-	ft_printf("rb\n");
 }
 
 void	ft_rr(t_bns *s)
@@ -68,7 +66,6 @@ void	ft_rra(t_bns *s)
 		c++;
 	}
 	s->sta[s->a_pos] = tmp; // Place the saved element in the correct position
-	ft_printf("rra\n");
 }
 
 void ft_rrb(t_bns *s)
@@ -96,5 +93,4 @@ void ft_rrb(t_bns *s)
 		i++; 
 	}
 	free(temp);
-	ft_printf("rrb\n");
 }

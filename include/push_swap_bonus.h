@@ -5,8 +5,10 @@
 
 # include <stdlib.h>
 # include <stdio.h>
+# include <string.h>
 # include "../src/ft_printf/ft_printf.h"
 # include "../src/libft/libft.h"
+# include "../src/get_next_line/get_next_line.h"
 
 typedef struct push_bonus
 {

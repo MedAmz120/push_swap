@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 20:10:36 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/05 20:10:37 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/05 22:53:35 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ft_sa(t_bns *s)
 		s->sta[s->a_pos] = s->sta[s->a_pos + 1];
 		s->sta[s->a_pos + 1] = tmp;
 	}
-	ft_printf("sa\n");
 }
 
 void	ft_sb(t_bns *s)
@@ -35,7 +34,6 @@ void	ft_sb(t_bns *s)
 		s->stb[s->b_pos] = s->stb[s->b_pos + 1];
 		s->stb[s->b_pos + 1] = tmp;
 	}
-	ft_printf("sb\n");
 }
 
 void	ft_ss(t_bns *s)
@@ -54,7 +52,6 @@ void	ft_pa(t_bns *s)
 	s->a_pos--;
 	s->a_cnt++;
 	s->b_cnt--;
-	ft_printf("pa\n");
 }
 
 void	ft_pb(t_bns *s)
@@ -67,5 +64,4 @@ void	ft_pb(t_bns *s)
 	s->a_pos++;
 	s->a_cnt--;
 	s->b_cnt++;
-	ft_printf("pb\n");
 }

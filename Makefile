@@ -6,7 +6,7 @@
 #    By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/09 12:48:53 by moamzil           #+#    #+#              #
-#    Updated: 2023/09/05 20:34:08 by moamzil          ###   ########.fr        #
+#    Updated: 2023/09/05 22:52:36 by moamzil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ FILE	= $(addprefix $(BIN)/, main arg_check tools check_sorted ft_operations_1 ft
 HEAD	= include/push_swap.h
 LIBFT	= src/libft
 PRINTF	= src/ft_printf
-SRC		= src/libft/libft.a src/ft_printf/ft_printf.a
+GNL		= src/get_next_line
+SRC		= src/libft/libft.a src/ft_printf/ft_printf.a src/get_next_line/gnl.a
 OBJ		= $(FILE:=.o)
 ARC		= bin/p_s.a
 CLN		= make clean -C
@@ -43,12 +44,14 @@ $(ARC): $(OBJ)
 $(SRC):
 	@make -C $(LIBFT)
 	@make -C $(PRINTF)
+	@make -C $(GNL)
 
 %.o: %.c $(HEAD) $(HEADBONUS)
 	@$(CC) $(FLAFGS) -c $< -o $@
 
 bonus: $(ARCBONUS) $(SRC)
 	@$(CC) $(FLAGS) $(SRC) $(ARCBONUS) -o $(NAMEBONUS)
+	
 $(ARCBONUS): $(OBJBONUS) $(SRC)
 	@$(AR) $(ARCBONUS) $(OBJBONUS)
 
