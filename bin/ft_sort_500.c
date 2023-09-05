@@ -19,4 +19,12 @@ void    ft_sort_500(t_swp *s)
         ft_sort_chunk(s);
         ft_pushto_stb(s);
         ft_pushto_sta(s);
+        int i = 0;
+        printf("-------------------STACK A------------------\n");
+        i = 0;
+        while (i < s->acs)
+        {
+                printf("[%d] -> %d\n", i, s->sta[i]);
+                i++;
+        };
 }

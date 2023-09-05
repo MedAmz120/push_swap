@@ -18,18 +18,8 @@ void	quit_program(t_swp *s, int error_type)
 
 	if (error_type == 0)
 	{
-		if (s->stb)
-		{
-			i = 0;
-			while (i > s->acs)
-			free(s->stb);
-		}
-		if (s->sta)
-		{
-			i = 0;
-			while (i < )
-			free(s->sta);
-		}
+		free(s->stb);
+		free(s->sta);
 		free(s->chnk);
 		s->sta = NULL;
 		s->stb = NULL;

@@ -91,22 +91,4 @@ void    ft_sort_100(t_swp *s)
         ft_sort_chunk(s);
         ft_pushto_stb(s);
         ft_pushto_sta(s); // now we get back the elements to stack A
-        int i = 0;
-        // printf("------------------\n");
-        // printf("---STACK B--------\n");
-        // while (i < s->acs)
-        // {
-        //         printf("[%d] -> %d\n", i, s->stb[i]);
-        //         i++;
-        // };        
-        // printf("------------------\n");
-        // printf("------------------\n");
-        // printf("------------------\n");
-        // printf("-------------------STACK A------------------\n");
-        // i = 0;
-        // while (i < s->acs)
-        // {
-        //         printf("[%d] -> %d\n", i, s->sta[i]);
-        //         i++;
-        // };
 }
