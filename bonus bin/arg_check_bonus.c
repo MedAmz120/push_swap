@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg_check.c                                        :+:      :+:    :+:   */
+/*   arg_check_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 11:25:41 by moamzil           #+#    #+#             */
-/*   Updated: 2023/08/19 18:46:04 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/05 16:57:14 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,7 @@ int	check_chars_bns(char *str)
 	if (count > 1)
 		error = 0;
 	if (error == 0)
-	{
-		perror("Error\n:Invalud Arguments fix issue ...");
 		return (0);
-	}
 	return (1);
 }
 
@@ -70,12 +67,12 @@ int	arg_check_bns(char **av, int ac, t_bns *s)
 
 	i = 1;
 	y = 0;
-	s->sta = (int *)malloc(sizeof(int) * ac);
+	s->sta = (int *)malloc(sizeof(int) * ac - 1);
 	if (!s->sta)
 		exit (1);
 	while (av[++y])
 		if (!(check_chars_bns(av[y])))
-			quit_program_bns (s, 0);
+			quit_program_bns (s, 404);
 	y = -1;
 	while (i < ac)
 	{
@@ -83,9 +80,9 @@ int	arg_check_bns(char **av, int ac, t_bns *s)
 		if (s->temp <= 2147483647)
 			s->sta[++y] = s->temp;
 		else
-			quit_program_bns (s, 0);
+			quit_program_bns (s, 404);
 	}
 	if (!(check_duplicate_bns(s)))
-		quit_program_bns (s, 0);
+		quit_program_bns (s, 404);
 	return (1);
 }
