@@ -12,7 +12,8 @@
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# define CHUNK_SIZE 15
+# define RANGE_SIZE_100 15
+# define RANGE_SIZE_500 25
 # define INT_MIN 2147483647
 
 # include <stdlib.h>
@@ -51,7 +52,7 @@ int     get_element_index(int *src, int t_find, int pos, t_swp *s); // for pushi
 int     ft_big_number_stb(t_swp *s); // search for the biggest element on stack B for ft_pushto_sta function
 void	quit_program(t_swp *s, int error_type); // clean F* program quiting
 
-/* Operatios Functions */
+/* Operations Functions */
 
 void    ft_sa(t_swp *s); /* Swap the 2 first elements at sta */
 void    ft_sb(t_swp *s); /* Swap the 2 first elements at stb */

@@ -44,11 +44,11 @@ void    ft_pushto_stb(t_swp *s)
 
         i = 0;
         s->start = 0;
-        s->stop = CHUNK_SIZE;
+        s->stop = RANGE_SIZE_100;
         if (s->a_cnt < 15)
                 s->stop = 5;
         if (s->acs > 100 && s->acs <= 500)
-                s->stop = 25;
+                s->stop = RANGE_SIZE_500;
         while (s->a_cnt >= 0)
         {
                 if (s->a_cnt == 0)
@@ -110,45 +110,3 @@ void    ft_sort_100(t_swp *s)
         //         i++;
         // };
 }
-
-/*
-void	send_max(t_data *data)
-{
-	int	max_ndx;
-	int	half_ndx;
-	int	max_v;
-
-	while (data->b_cnt)
-	{
-		max_v = max_value(data);
-		max_ndx = max_index(data, max_v);
-		half_ndx = data->b_cnt / 2;
-		send_max_p2(data, &max_ndx, &half_ndx);
-	}
-}
-
-void	send_max_p2(t_data *data, int *max_ndx, int *half_ndx)
-{
-	int	size;
-
-	if ((*max_ndx) >= (*half_ndx))
-	{
-		size = data->b_cnt;
-		while (size > (*max_ndx))
-		{
-			rrb(data);
-			size--;
-		}
-	}
-	else if ((*max_ndx) < (*half_ndx))
-	{
-		size = 0;
-		while (size < (*max_ndx))
-		{
-			rb(data);
-			size++;
-		}
-	}
-	pa(data);
-}
-*/
