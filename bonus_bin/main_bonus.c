@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:12:33 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/06 15:10:31 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/06 19:12:37 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	main(int ac, char **av)
 	t_bns	swp;
 
 	swp.arg_c = ac;
-	int i = 0;
 	if (ac > 1)
 	{
 		if (arg_check_bns(av, ac, &swp))

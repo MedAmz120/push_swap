@@ -6,7 +6,7 @@
 #    By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/09 12:48:53 by moamzil           #+#    #+#              #
-#    Updated: 2023/09/06 18:04:58 by moamzil          ###   ########.fr        #
+#    Updated: 2023/09/06 19:19:45 by moamzil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,10 +36,10 @@ NAMEBONUS	= checker
 
 
 all: $(ARC) $(SRC)
-	@$(CC) $(FLAGS) $(SRC) $(ARC) -o $(NAME)
+	$(CC) $(FLAGS) $(SRC) $(ARC) -o $(NAME)
 
 $(ARC): $(OBJ)
-	@$(AR) $(ARC) $(OBJ)
+	$(AR) $(ARC) $(OBJ)
 
 $(SRC):
 	@make -C $(LIBFT)
@@ -47,13 +47,13 @@ $(SRC):
 	@make -C $(GNL)
 
 %.o: %.c $(HEAD) $(HEADBONUS)
-	@$(CC) $(FLAFGS) -c $< -o $@
+	$(CC) $(FLAFGS) -c $< -o $@
 
 bonus: $(ARCBONUS) $(SRC)
-	@$(CC) $(FLAGS) $(SRC) $(ARCBONUS) -o $(NAMEBONUS)
+	$(CC) $(FLAGS) $(SRC) $(ARCBONUS) -o $(NAMEBONUS)
 	
 $(ARCBONUS): $(OBJBONUS) $(SRC)
-	@$(AR) $(ARCBONUS) $(OBJBONUS)
+	$(AR) $(ARCBONUS) $(OBJBONUS)
 
 
 clean:

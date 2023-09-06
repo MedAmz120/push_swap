@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:12:45 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/06 13:22:09 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/06 19:06:02 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	check_chars_bns(char *str)
 		if (str[i] == '-')
 			count++;
 	}
-	if (str[0] == '-' && str[1] == '\0') // ./push_swap 56 78 -
+	if (str[0] == '-' && str[1] == '\0')
 		error = 0;
 	if (count > 1)
 		error = 0;

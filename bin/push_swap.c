@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 13:20:08 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/05 19:38:38 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/06 18:58:58 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_push_swap(t_swp *s)
 	s->b_pos = s->acs;
 	s->a_pos = 0;
 	s->b_cnt = 0;
-	s->a_cnt = s->acs;// because a is already full unlike stack b is empty
+	s->a_cnt = s->acs;
 	s->stb = (int *)malloc(sizeof(int) * s->acs);
 	if (!s->stb)
 		quit_program (s, 0);

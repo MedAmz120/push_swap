@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 11:25:41 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/05 19:23:08 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/06 18:49:42 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	check_chars(char	*str)
 		if (str[i] == '-')
 			count++;
 	}
-	if (str[0] == '-' && str[1] == '\0') // ./push_swap 56 78 -
+	if (str[0] == '-' && str[1] == '\0')
 		error = 0;
 	if (count > 1)
 		error = 0;
@@ -77,7 +77,7 @@ int	arg_check(char **av, int ac, t_swp *s)
 		exit (1);
 	while (av[++y])
 		if (!(check_chars(av[y]) && che_rg(av[y])))
-				quit_program (s, 404);
+			quit_program (s, 404);
 	y = -1;
 	while (i < ac)
 	{

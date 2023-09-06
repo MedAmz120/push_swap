@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 12:25:29 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/06 18:21:36 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/06 19:00:12 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ long	push_swap_atoi(char *str)
 	return (nbr * neg);
 }
 
-void    ft_duplicate_stack(int *src, int *dest, int size)
+void	ft_duplicate_stack(int *src, int *dest, int size)
 {
 	int	i;
 
@@ -71,9 +71,9 @@ void    ft_duplicate_stack(int *src, int *dest, int size)
 	}
 }
 
-void    ft_create_chunk(t_swp *s)
+void	ft_create_chunk(t_swp *s)
 {
-    s->chnk = (int *)malloc(sizeof(int *) * s->acs);
-    if (!s->chnk)
-    	quit_program(s, 0);
+	s->chnk = (int *)malloc(sizeof(int *) * s->acs);
+	if (!s->chnk)
+		quit_program(s, 0);
 }

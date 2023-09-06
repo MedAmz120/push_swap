@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 19:38:43 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/06 18:17:22 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/06 18:50:45 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,24 +63,24 @@ void	ft_rra(t_swp *s, int msg)
 	j = 0;
 	c = 0;
 	i = s->acs - 1;
-	tmp = s->sta[i]; // Save the last element
+	tmp = s->sta[i];
 	while (c < s->a_cnt - 1)
 	{
-		s->sta[i] = s->sta[(i - 1 + s->acs) % s->acs]; // Move elements one position to the right
+		s->sta[i] = s->sta[(i - 1 + s->acs) % s->acs];
 		i = (i - 1 + s->acs) % s->acs;
 		c++;
 	}
-	s->sta[s->a_pos] = tmp; // Place the saved element in the correct position
+	s->sta[s->a_pos] = tmp;
 	if (msg == 1)
 		ft_printf("rra\n");
 }
 
-void ft_rrb(t_swp *s, int msg)
+void	ft_rrb(t_swp *s, int msg)
 {
 	int	i;
-	int pos;
-	int hold;
-	int *temp;
+	int	pos;
+	int	hold;
+	int	*temp;
 
 	i = 0;
 	hold = s->stb[s->acs - 1];
