@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 19:38:43 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/06 17:05:00 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/06 18:17:22 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,8 @@ void ft_rrb(t_swp *s, int msg)
 	i = 0;
 	pos = 1;
 	while (i < s->b_cnt - 1)
-	{
-		s->stb[s->b_pos + pos] = temp[i];
-		pos++;
-		i++; 
-	}
+		s->stb[s->b_pos + (pos++)] = temp[i++];
+	free(temp);
 	if (msg == 1)
 		ft_printf("rrb\n");
 }
