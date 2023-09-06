@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 19:38:43 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/04 11:45:57 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/06 17:05:00 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,10 @@ void ft_rrb(t_swp *s, int msg)
 	hold = s->stb[s->acs - 1];
 	pos = s->b_pos;
 	temp = (int *)malloc(sizeof(int) * (s->b_cnt - 1));
+	if (!temp)
+		quit_program (s, 0);
 	while (i < s->b_cnt - 1)
-	{
 		temp[i++] = s->stb[pos++];
-	}
 	s->stb[s->b_pos] = hold;
 	i = 0;
 	pos = 1;
