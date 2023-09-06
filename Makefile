@@ -6,7 +6,7 @@
 #    By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/09 12:48:53 by moamzil           #+#    #+#              #
-#    Updated: 2023/09/05 22:52:36 by moamzil          ###   ########.fr        #
+#    Updated: 2023/09/06 13:09:28 by moamzil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,12 +62,14 @@ clean:
 	@$(RM) $(ARCBONUS)
 	@$(RM) $(OBJBONUS)
 	@$(CLN) $(LIBFT)
+	@$(CLN) $(GNL)
 	@$(CLN) $(PRINTF)
 
 fclean: clean
 	@$(RM) $(NAME)
 	@$(RM) $(NAMEBONUS)
 	@$(FLN) $(LIBFT)
+	@$(FLN) $(GNL)
 	@$(FLN) $(PRINTF)
 
 re: fclean all

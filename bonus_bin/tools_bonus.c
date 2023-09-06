@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 12:25:29 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/05 17:13:28 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/06 15:12:22 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ void	quit_program_bns(t_bns *s, int pte)
 	s->sta = NULL;
 	s->stb = NULL;
 	if (pte == 404)
-		ft_printf("Error\n");
+		ft_putstr_fd("Error\n", 2);
+	if (pte == 1)
+		ft_printf("OK\n", 2);
 	exit (1);
 }
 

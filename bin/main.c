@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 11:20:09 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/05 18:55:21 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/06 13:33:26 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ int	main(int ac, char **av)
 			else
 			{
 				ft_push_swap(&swp);
+				int i = 0;
+				/*while (i < swp.acs)
+				{printf("%d\n", swp.sta[i]);i++;}*/
 				quit_program(&swp, 0);
 			}
 		}

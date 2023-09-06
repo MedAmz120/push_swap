@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:12:33 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/05 21:14:13 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/06 15:10:31 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,14 @@ int	main(int ac, char **av)
 	t_bns	swp;
 
 	swp.arg_c = ac;
+	int i = 0;
 	if (ac > 1)
 	{
 		if (arg_check_bns(av, ac, &swp))
 		{
 			swp.arg_c = swp.arg_c - 1;
 			if (check_sorted_bns(&swp))
-				quit_program_bns (&swp, 0);
+				quit_program_bns (&swp, 1);
 			else
 			{
 				ft_apply_instructions(&swp);
@@ -33,7 +34,6 @@ int	main(int ac, char **av)
 					ft_printf("KO\n");
 				quit_program_bns (&swp, 0);
 			}
-
 		}
 	}
 	return (0);
