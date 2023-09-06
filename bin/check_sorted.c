@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 10:11:50 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/06 15:06:41 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/06 16:14:09 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	check_part_sorted(t_swp *s)
 	int	i;
 
 	i = s->a_pos;
-	while (i < s->a_cnt)
+	while (i <= s->a_cnt)
 	{
 		if ((s->sta[i] < s->sta[i + 1]))
 			i++;

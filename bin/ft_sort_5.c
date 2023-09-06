@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 10:29:10 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/05 19:58:56 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/06 16:17:19 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	ft_sort_5(t_swp *s)
 	ft_small_number_pb(s->sta, s);
 	ft_small_out(s);
 	if (!check_part_sorted(s))
-		ft_sort_3(s);
+		{ft_sort_3(s);}
 	if (s->stb[s->b_pos] < s->stb[s->b_pos + 1])
 		ft_sb(s, 1);
 	ft_pa(s);
