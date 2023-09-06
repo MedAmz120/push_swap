@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 12:25:29 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/05 19:05:57 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/06 16:29:10 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	quit_program(t_swp *s, int pte)
 	s->stb = NULL;
 	s->chnk = NULL;
 	if (pte == 404)
-		ft_printf("Error\n");
+		ft_putstr_fd("Error\n", 2);
 	exit (1);
 }
 
