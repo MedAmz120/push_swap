@@ -47,7 +47,7 @@ void	ft_pushto_stb(t_swp *s)
 	s->stop = RANGE_SIZE_100;
 	if (s->a_cnt < 15)
 		s->stop = 5;
-	if (s->acs > 100 && s->acs <= 500)
+	if (s->acs > 100)
 		s->stop = RANGE_SIZE_500;
 	while (s->a_cnt >= 0)
 	{

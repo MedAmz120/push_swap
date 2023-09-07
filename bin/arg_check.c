@@ -76,13 +76,13 @@ int	arg_check(char **av, int ac, t_swp *s)
 	if (!s->sta)
 		exit (1);
 	while (av[++y])
-		if (!(check_chars(av[y]) && che_rg(av[y])))
+		if (!(check_chars(av[y]) && (che_rg(av[y]))))
 			quit_program (s, 404);
 	y = -1;
 	while (i < ac)
 	{
 		s->temp = push_swap_atoi(av[i++]);
-		if (s->temp <= 2147483647 && s->temp > -2147483648)
+		if (s->temp >= -2147483648 && s->temp <= 2147483647)
 			s->sta[++y] = s->temp;
 		else
 			quit_program (s, 404);

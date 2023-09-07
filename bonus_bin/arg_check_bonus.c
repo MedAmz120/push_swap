@@ -82,7 +82,7 @@ int	arg_check_bns(char **av, int ac, t_bns *s)
 	while (i < ac)
 	{
 		s->temp = push_swap_atoi_bns(av[i++]);
-		if (s->temp <= 2147483647)
+		if (s->temp >= -2147483648 && s->temp <= 2147483647)
 			s->sta[++y] = s->temp;
 		else
 			quit_program_bns (s, 404);
