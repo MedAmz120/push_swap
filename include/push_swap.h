@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 13:25:38 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/08 23:23:37 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/09 19:42:31 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct push_swap
 
 void	check_double_quo(char *str, t_swp *s, int *ac);
 void	check_spaces(char *str, t_swp *s);
+int		ch_mp(char	*str);
 int		ft_word_cswp(char const *s, char c);
 int		arg_check(char **av, int ac, t_swp *s);
 int		check_chars(char *str);

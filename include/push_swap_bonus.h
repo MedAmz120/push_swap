@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 18:44:07 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/08 23:23:30 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/09 20:17:09 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct push_bonus
 /* Program Function */
 
 int		arg_check_bns(char **av, int ac, t_bns *s);
+int		ch_mp_bns(char	*str);
 void	check_double_quo_bns(char *str, t_bns *s, int *ac);
 int		ft_word_cswp_bns(char const *s, char c);
 void	check_spaces_bns(char *str, t_bns *s);

@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:12:45 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/08 22:56:32 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/09 20:31:32 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,49 @@ int	check_duplicate_bns(t_bns *s)
 	return (1);
 }
 
-int	check_chars_bns(char *str)
+int	ch_mp_bns(char	*str)
 {
 	int	i;
-	int	error;
-	int	count;
+	int	mine;
+	int	plus;
 
-	i = -1;
-	count = 0;
-	error = 1;
-	while (str[++i])
+	i = 0;
+	plus = 0;
+	mine = 0;
+	while ((str[i] == '-' || str[i] == '+')
+		|| (str[i] == '\t' || str[i] == ' '))
 	{
-		if ((str[i] < '0' || str[i] > '9')
-			&& str[i] != '-')
-			error = 0;
 		if (str[i] == '-')
-			count++;
+			mine++;
+		else if (str[i] == '+')
+			plus++;
+		i++;
+	}
+	if (mine > 1 || plus > 1)
+		return (0);
+	if (mine >= 1 && plus >= 1)
+		return (0);
+	return (1);
+}
+
+int	check_chars_bns(char	*str)
+{
+	int	i;
+
+	i = 0;
+	if (!(ch_mp_bns(str)))
+		return (0);
+	while ((str[i] == '-' || str[i] == '+')
+		|| (str[i] == '\t' || str[i] == ' '))
+		++i;
+	while (str[i])
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+			i++;
+		else
+			return (0);
 	}
 	if (str[0] == '-' && str[1] == '\0')
-		error = 0;
-	if (count > 1)
-		error = 0;
-	if (error == 0)
 		return (0);
 	return (1);
 }

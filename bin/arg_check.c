@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 11:25:41 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/08 21:36:22 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/09 20:30:13 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,49 @@ int	check_duplicate(t_swp *s)
 	return (1);
 }
 
+int	ch_mp(char	*str)
+{
+	int	i;
+	int	mine;
+	int	plus;
+
+	i = 0;
+	plus = 0;
+	mine = 0;
+	while ((str[i] == '-' || str[i] == '+')
+		|| (str[i] == '\t' || str[i] == ' '))
+	{
+		if (str[i] == '-')
+			mine++;
+		else if (str[i] == '+')
+			plus++;
+		i++;
+	}
+	if ((mine > 1 || plus > 1))
+		return (0);
+	if (mine >= 1 && plus >= 1)
+		return (0);
+	return (1);
+}
+
 int	check_chars(char	*str)
 {
 	int	i;
-	int	error;
-	int	count;
 
-	i = -1;
-	count = 0;
-	error = 1;
-	while (str[++i])
+	i = 0;
+	if (!(ch_mp(str)))
+		return (0);
+	while ((str[i] == '-' || str[i] == '+')
+		|| (str[i] == '\t' || str[i] == ' '))
+		++i;
+	while (str[i])
 	{
-		if ((str[i] < '0' || str[i] > '9')
-			&& str[i] != '-')
-			error = 0;
-		if (str[i] == '-')
-			count++;
+		if (str[i] >= '0' && str[i] <= '9')
+			i++;
+		else
+			return (0);
 	}
 	if (str[0] == '-' && str[1] == '\0')
-		error = 0;
-	if (count > 1)
-		error = 0;
-	if (error == 0)
 		return (0);
 	return (1);
 }
@@ -76,7 +97,7 @@ int	arg_check(char **av, int ac, t_swp *s)
 	if (!s->sta)
 		exit (1);
 	while (av[++y])
-		if (!(check_chars(av[y]) && (che_rg(av[y]))))
+		if ((!(check_chars(av[y]))) || (!(che_rg(av[y]))))
 			return (0);
 	y = -1;
 	while (i < ac)

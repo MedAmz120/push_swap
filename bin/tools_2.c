@@ -6,7 +6,7 @@
 /*   By: moamzil <moamzil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 12:25:29 by moamzil           #+#    #+#             */
-/*   Updated: 2023/09/08 21:40:47 by moamzil          ###   ########.fr       */
+/*   Updated: 2023/09/09 20:28:43 by moamzil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,10 +105,7 @@ void	check_double_quo(char *str, t_swp *s, int *ac)
 	i = 1;
 	(*ac) = ft_word_cswp(str, ' ') + 1;
 	check_spaces(str, s);
-	if ((*ac) == 2)
-		quit_program (s, 0);
-	else
-		tmp = ft_split(str, ' ');
+	tmp = ft_split(str, ' ');
 	s->avg = tmp;
 	if (!s->avg)
 		quit_program (s, 404);
