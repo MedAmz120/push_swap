@@ -106,6 +106,8 @@ void	check_double_quo(char *str, t_swp *s, int *ac)
 	(*ac) = ft_word_cswp(str, ' ') + 1;
 	check_spaces(str, s);
 	tmp = ft_split(str, ' ');
+	if (tmp[1][0] == '\0')
+		quit_program (s, 404);
 	s->avg = tmp;
 	if (!s->avg)
 		quit_program (s, 404);

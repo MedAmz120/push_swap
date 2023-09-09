@@ -112,6 +112,8 @@ void	check_double_quo_bns(char *str, t_bns *s, int *ac)
 	check_spaces_bns(str, s);
 	tmp = ft_split(str, ' ');
 	s->avg_b = tmp;
+	if (tmp[1][0] == '\0')
+		quit_program_bns (s, 404);
 	if (!s->avg_b)
 		quit_program_bns (s, 404);
 	s->ca_se = 1;

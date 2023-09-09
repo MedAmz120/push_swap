@@ -59,12 +59,28 @@ int	ch_mp_bns(char	*str)
 	return (1);
 }
 
+int	che_rg_bns(char *str)
+{
+	int	i;
+
+	i = 0;
+	if ((*str) == '+' || (*str) == '-')
+		str++;
+	while ((*str) == '0')
+		str++;
+	if (*str == '\0')
+		return (1);
+	return (!(ft_strlen(str) > 11));
+}
+
 int	check_chars_bns(char	*str)
 {
 	int	i;
 
 	i = 0;
 	if (!(ch_mp_bns(str)))
+		return (0);
+ 	if (!(che_rg_bns(str)))
 		return (0);
 	while ((str[i] == '-' || str[i] == '+')
 		|| (str[i] == '\t' || str[i] == ' '))
@@ -81,11 +97,6 @@ int	check_chars_bns(char	*str)
 	return (1);
 }
 
-int	che_rg_bns(char *str)
-{
-	return (!(ft_strlen(str) > 11));
-}
-
 int	arg_check_bns(char **av, int ac, t_bns *s)
 {
 	int	i;
@@ -97,7 +108,7 @@ int	arg_check_bns(char **av, int ac, t_bns *s)
 	if (!s->sta)
 		exit (1);
 	while (av[++y])
-		if (!(check_chars_bns(av[y]) && che_rg_bns(av[y])))
+		if (!(check_chars_bns(av[y])))
 			quit_program_bns (s, 404);
 	y = -1;
 	while (i < ac)

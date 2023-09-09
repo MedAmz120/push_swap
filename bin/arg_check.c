@@ -59,12 +59,28 @@ int	ch_mp(char	*str)
 	return (1);
 }
 
+int	che_rg(char *str)
+{
+	int	i;
+
+	i = 0;
+	if ((*str) == '+' || (*str) == '-')
+		str++;
+	while ((*str) == '0')
+		str++;
+	if (*str == '\0')
+		return (1);
+	return (!(ft_strlen(str) > 11));
+}
+
 int	check_chars(char	*str)
 {
 	int	i;
 
 	i = 0;
 	if (!(ch_mp(str)))
+		return (0);
+	if (!(che_rg(str)))
 		return (0);
 	while ((str[i] == '-' || str[i] == '+')
 		|| (str[i] == '\t' || str[i] == ' '))
@@ -81,11 +97,6 @@ int	check_chars(char	*str)
 	return (1);
 }
 
-int	che_rg(char *str)
-{
-	return (!(ft_strlen(str) > 11));
-}
-
 int	arg_check(char **av, int ac, t_swp *s)
 {
 	int	i;
@@ -97,7 +108,7 @@ int	arg_check(char **av, int ac, t_swp *s)
 	if (!s->sta)
 		exit (1);
 	while (av[++y])
-		if ((!(check_chars(av[y]))) || (!(che_rg(av[y]))))
+		if ((!(check_chars(av[y]))))
 			return (0);
 	y = -1;
 	while (i < ac)
